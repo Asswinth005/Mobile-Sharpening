@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | EdgeFix – Mobile Sharpening & Blade Repair Service</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='75' font-size='75' text-anchor='middle'%3E⚔️%3C/text%3E%3C/svg%3E">
+    <meta name="description"
+        content="Transparent pricing for mobile sharpening services — pay per blade, membership plans, volume discounts, and subscription options. No hidden fees, free estimates.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'edge-primary': '#2B4C7E',
+                        'edge-secondary': '#E07A5F',
+                        'edge-accent': '#A5CAD2',
+                        'edge-dark': '#0B0B0C',
+                        'edge-light': '#F4F6F9',
+                        'edge-steel': '#4A6B82',
+                        'edge-blade': '#7D9FB6',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['"Playfair Display"', 'serif'],
+                        'mono': ['"Fira Code"', 'monospace'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 3s linear infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; scrollbar-width: none; -ms-overflow-style: none; }
+        body::-webkit-scrollbar { display: none; }
+
+        .nav-item { position: relative; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.02em; transition: color 0.3s ease; padding: 0.5rem 0; cursor: pointer; }
+        .nav-item:hover, .nav-item.active { color: #E07A5F; }
+        .nav-item.active { font-weight: 700; }
+        .nav-item::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #E07A5F; transition: width 0.3s ease; }
+        .nav-item:hover::after, .nav-item.active::after { width: 100%; }
+
+        .dropdown { position: relative; }
+        .dropdown-menu { position: absolute; top: 100%; left: 0; min-width: 200px; background: #FFFFFF; border-radius: 12px; padding: 0.5rem 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; border: 1px solid #2B4C7E20; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
+        .dark .dropdown-menu { background: #151518; border-color: #26262B; }
+        .dropdown:hover .dropdown-menu, .dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-item { display: flex; align-items: center; padding: 0.6rem 1.2rem; gap: 10px; transition: all 0.2s; font-size: 0.85rem; cursor: pointer; }
+        .dropdown-item:hover { background: #2B4C7E10; color: #E07A5F; padding-left: 1.5rem; }
+        .dropdown-item.active { background: #2B4C7E05; color: #E07A5F; font-weight: 700; border-left: 3px solid #E07A5F; padding-left: 1.5rem; }
+        .dropdown-item i { width: 18px; color: #E07A5F; }
+
+        .auth-btn { padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 500; font-size: 0.85rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .auth-btn.login { background: transparent; border: 1.5px solid #E07A5F; color: #E07A5F; }
+        .auth-btn.login:hover { background: #E07A5F; color: #FFFFFF; }
+        .auth-btn.signup { background: #E07A5F; color: #FFFFFF; }
+        .auth-btn.signup:hover { background: #C55D42; color: #FFFFFF; transform: translateY(-2px); }
+
+        .toggle-btn { width: 36px; height: 36px; border-radius: 40px; background: #F0F0F0; color: #2B4C7E; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; }
+        .dark .toggle-btn { background: #151518; color: #FFFFFF; }
+        .toggle-btn:hover { background: #E07A5F; color: white; transform: rotate(15deg); }
+
+        .pricing-plan { background: #FFFFFF; border-radius: 28px; transition: all 0.4s ease; overflow: hidden; border: 1px solid #E8E8E8; }
+        .dark .pricing-plan { background: #151518; border-color: #26262B; }
+        .pricing-plan:hover { transform: translateY(-8px); border-color: #E07A5F; box-shadow: 0 25px 40px -15px rgba(224, 122, 95, 0.25); }
+
+        .btn-primary { background: #E07A5F; color: #FFFFFF; padding: 0.8rem 2rem; border-radius: 60px; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; justify-content: center; }
+        .btn-primary:hover { background: #C55D42; color: #FFFFFF; transform: scale(1.03); }
+        .btn-outline { border: 2px solid #E07A5F; background: transparent; color: #E07A5F; padding: 0.75rem 2rem; border-radius: 60px; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-outline:hover { background: #E07A5F; color: #FFFFFF; }
+
+        .social-icon { width: 40px; height: 40px; background: rgba(0, 0, 0, 0.05); display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; transition: all 0.3s; color: #E07A5F; }
+        .dark .social-icon { background: rgba(255, 255, 255, 0.1); }
+        .social-icon:hover { background: #E07A5F !important; color: #FFFFFF; transform: translateY(-3px); }
+
+        .mobile-menu { background: #FFFFFF; max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+        .dark .mobile-menu { background: #151518; }
+        .mobile-menu.open { max-height: 80vh; overflow-y: auto; }
+        .mobile-menu-item { display: block; padding: 1rem 1.5rem; border-bottom: 1px solid #E8E8E8; font-weight: 500; transition: all 0.3s; cursor: pointer; }
+        .dark .mobile-menu-item { border-bottom-color: #26262B; }
+        .mobile-menu-item.active { color: #E07A5F; font-weight: 700; background: rgba(224, 122, 95, 0.05); border-left: 4px solid #E07A5F; padding-left: calc(1.5rem - 4px); }
+        [dir="rtl"] .mobile-menu-item.active { border-left: none; border-right: 4px solid #E07A5F; padding-left: 1.5rem; padding-right: calc(1.5rem - 4px); }
+        .mobile-dropdown-content { max-height: 0; overflow: hidden; transition: max-height 0.3s; background: #F8F8F8; }
+        .dark .mobile-dropdown-content { background: #0B0B0C; }
+        .mobile-dropdown-content.show { max-height: 200px; }
+        .footer-heading { position: relative; padding-bottom: 0.5rem; display: inline-block; }
+        @media (min-width: 768px) { .footer-heading { display: block; padding-bottom: 0; border-left: 3px solid #E07A5F; padding-left: 0.75rem; } }
+        [dir="rtl"] .footer-heading { border-left: none; border-right: 3px solid #E07A5F; padding-left: 0; padding-right: 0.75rem; }
+        .footer-contact-item { display: flex; gap: 0.75rem; align-items: center; }
+        .footer-contact-item i { width: 20px; color: #E07A5F; }
+
+        .price-chip { background: linear-gradient(135deg, #E07A5F15 0%, #2B4C7E15 100%); border-radius: 100px; padding: 4px 12px; font-size: 0.7rem; font-weight: 600; color: #E07A5F; }
+        .savings-badge { position: absolute; top: -12px; right: 20px; background: #E07A5F; color: white; font-size: 0.7rem; font-weight: bold; padding: 4px 12px; border-radius: 100px; }
+        [dir="rtl"] .savings-badge { right: auto; left: 20px; }
+        
+        .feature-list li { margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .feature-list i { color: #E07A5F; width: 20px; }
+        
+        .volume-tier { transition: all 0.3s ease; }
+        .volume-tier:hover { background: #E07A5F10; border-color: #E07A5F; transform: translateX(5px); }
+        [dir="rtl"] .volume-tier:hover { transform: translateX(-5px); }
+    </style>
+</head>
+<body class="bg-edge-light dark:bg-edge-dark text-gray-900 dark:text-gray-100">
+
+    <!-- ========== HEADER ========== -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-edge-dark border-b border-edge-secondary/30 shadow-md transition-all duration-300">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <div class="bg-gradient-to-br from-edge-primary to-edge-dark p-2 rounded-xl shadow-md">
+                            <i class="fas fa-cut text-2xl text-edge-secondary group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xl md:text-2xl font-display font-bold tracking-tight">
+                                <span class="text-edge-primary dark:text-white">Edge</span><span class="text-edge-secondary">Fix</span>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hidden xl:flex items-center justify-center flex-1 mx-8">
+                    <div class="flex items-center gap-6">
+                        <div class="dropdown">
+                            <button class="nav-item flex items-center gap-1">Home <i class="fas fa-chevron-down text-[10px]"></i></button>
+                            <div class="dropdown-menu">
+                                <a href="index.html" class="dropdown-item">Home 1</a>
+                                <a href="home2.html" class="dropdown-item">Home 2</a>
+                            </div>
+                        </div>
+                        <a href="about.html" class="nav-item">About</a>
+                        <a href="service.html" class="nav-item">Services</a>
+                        <a href="repair.html" class="nav-item">Repair</a>
+                        <a href="pricing.html" class="nav-item active">Pricing</a>
+                        <a href="gallery.html" class="nav-item">Gallery</a>
+                        <a href="doorstep.html" class="nav-item">Doorstep</a>
+                        <a href="book.html" class="nav-item">Book</a>
+                        <a href="contact.html" class="nav-item">Contact</a>
+                    </div>
+                </div>
+
+                <div class="hidden xl:flex items-center gap-3">
+                    <button id="theme-toggle" class="toggle-btn" title="Theme"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+                    <button id="rtl-toggle" class="toggle-btn" title="RTL">⇄</button>
+                    <a href="login.html" class="auth-btn login"><i class="fas fa-user-circle"></i> Login</a>
+                    <a href="signup.html" class="auth-btn signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+                </div>
+
+                <div class="xl:hidden flex items-center">
+                    <button id="mobile-toggle" class="text-gray-800 dark:text-white p-2 text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="mobile-menu xl:hidden">
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-btn flex justify-between items-center w-full mobile-menu-item">Home <i class="fas fa-chevron-down text-xs"></i></button>
+                    <div class="mobile-dropdown-content"><a href="index.html" class="block px-8 py-2 text-sm">Home 1</a><a href="home2.html" class="block px-8 py-2 text-sm">Home 2</a></div>
+                </div>
+                <a href="about.html" class="mobile-menu-item">About</a>
+                <a href="service.html" class="mobile-menu-item">Services</a>
+                <a href="repair.html" class="mobile-menu-item">Repair</a>
+                <a href="pricing.html" class="mobile-menu-item active">Pricing</a>
+                <a href="gallery.html" class="mobile-menu-item">Gallery</a>
+                <a href="doorstep.html" class="mobile-menu-item">Doorstep</a>
+                <a href="book.html" class="mobile-menu-item">Book</a>
+                <a href="contact.html" class="mobile-menu-item">Contact</a>
+                <div class="p-6 border-t border-edge-secondary/20">
+                    <div class="flex justify-center gap-3 mb-4">
+                        <button id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+                        <button id="rtl-toggle-mobile" class="toggle-btn">⇄</button>
+                    </div>
+                    <div class="flex justify-center gap-3">
+                        <a href="login.html" class="auth-btn login text-sm flex items-center justify-center flex-1">Login</a>
+                        <a href="signup.html" class="auth-btn signup text-sm flex items-center justify-center flex-1">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== SECTION 1: HERO - Pricing ========== -->
+    <section class="relative pt-40 pb-28 md:pt-52 md:pb-36 overflow-hidden bg-gradient-to-br from-edge-primary via-edge-primary to-edge-dark">
+        <div class="absolute inset-0 opacity-10"><svg class="w-full h-full"><pattern id="blade" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M30,5 L55,30 L30,55 L5,30 Z" fill="none" stroke="#E07A5F" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#blade)"/></svg></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 bg-edge-secondary/20 backdrop-blur-sm px-5 py-2 rounded-full mb-6 border border-edge-secondary/30">
+                    <i class="fas fa-dollar-sign text-edge-secondary text-sm"></i>
+                    <span class="text-edge-secondary font-mono text-sm tracking-wider">TRANSPARENT PRICING</span>
+                </div>
+                <h1 class="text-3xl md:text-6xl font-display font-bold leading-tight text-white drop-shadow-lg">
+                    Fair & <span class="text-edge-secondary">Upfront</span> Rates
+                </h1>
+                <div class="w-20 h-1 bg-edge-secondary mx-auto my-6 shadow-sm"></div>
+                <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-light">
+                    No hidden fees. No surprise charges. You'll know the exact price before we start — guaranteed.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center mt-8">
+                    <a href="book.html" class="btn-primary shadow-lg"><i class="fas fa-calculator"></i> Calculate Your Cost</a>
+                    <a href="contact.html" class="btn-outline border-white text-white hover:bg-white hover:text-edge-primary"><i class="fas fa-file-invoice"></i> Request Custom Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 2: Per-Blade Pricing Grid (6 Categories) ========== -->
+    <section class="py-24 bg-white dark:bg-edge-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-14">
+                <span class="text-edge-secondary font-mono text-sm tracking-widest">PAY AS YOU GO</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">Per-Blade <span class="text-edge-secondary">Pricing</span></h2>
+                <div class="w-20 h-1 bg-edge-secondary mx-auto mt-4"></div>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4">Perfect for occasional sharpening — pay only for what you need. Minimum service fee $20 per visit.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="pricing-plan p-6 text-center"><div class="w-16 h-16 bg-edge-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-utensils text-2xl text-edge-secondary"></i></div><h3 class="font-display text-xl font-bold mb-1">Kitchen Knives</h3><div class="text-3xl font-bold text-edge-secondary mt-2">$5<span class="text-sm font-normal text-gray-500">/blade</span></div><p class="text-sm text-gray-500 mt-2">Chef, paring, bread, santoku, cleaver</p><div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800"><span class="price-chip">Minimum 4 blades</span></div></div>
+                <div class="pricing-plan p-6 text-center"><div class="w-16 h-16 bg-edge-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-cut text-2xl text-edge-secondary"></i></div><h3 class="font-display text-xl font-bold mb-1">Scissors & Shears</h3><div class="text-3xl font-bold text-edge-secondary mt-2">$8<span class="text-sm font-normal text-gray-500">/pair</span></div><p class="text-sm text-gray-500 mt-2">Hair, fabric, office, pinking, industrial</p><div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800"><span class="price-chip">Includes pivot adjustment</span></div></div>
+                <div class="pricing-plan p-6 text-center"><div class="w-16 h-16 bg-edge-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-leaf text-2xl text-edge-secondary"></i></div><h3 class="font-display text-xl font-bold mb-1">Garden Tools</h3><div class="text-3xl font-bold text-edge-secondary mt-2">$10<span class="text-sm font-normal text-gray-500">/tool</span></div><p class="text-sm text-gray-500 mt-2">Pruners, loppers, hedge shears, shovels</p><div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800"><span class="price-chip">Rust removal included</span></div></div>
+                <div class="pricing-plan p-6 text-center"><div class="w-16 h-16 bg-edge-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-gears text-2xl text-edge-secondary"></i></div><h3 class="font-display text-xl font-bold mb-1">Saw Blades</h3><div class="text-3xl font-bold text-edge-secondary mt-2">$12<span class="text-sm font-normal text-gray-500">/blade</span></div><p class="text-sm text-gray-500 mt-2">Circular, band, chainsaw, table saw</p><div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800"><span class="price-chip">Carbide/steel teeth</span></div></div>
+                <div class="pricing-plan p-6 text-center"><div class="w-16 h-16 bg-edge-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-industry text-2xl text-edge-secondary"></i></div><h3 class="font-display text-xl font-bold mb-1">Industrial Blades</h3><div class="text-3xl font-bold text-edge-secondary mt-2">Custom</div><p class="text-sm text-gray-500 mt-2">Manufacturing, die cutters, slitter</p><div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800"><span class="price-chip">Free quote available</span></div></div>
+                <div class="pricing-plan p-6 text-center"><div class="w-16 h-16 bg-edge-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-tools text-2xl text-edge-secondary"></i></div><h3 class="font-display text-xl font-bold mb-1">Tool Restoration</h3><div class="text-3xl font-bold text-edge-secondary mt-2">$25<span class="text-sm font-normal text-gray-500">+/tool</span></div><p class="text-sm text-gray-500 mt-2">Rust removal, handle repair, sharpening</p><div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800"><span class="price-chip">Estimate provided</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 3: Membership Plans (3 Tiers - New Design) ========== -->
+    <section class="py-24 bg-gradient-to-r from-edge-light to-white dark:from-edge-dark dark:to-edge-dark/80">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-14">
+                <span class="text-edge-secondary font-mono text-sm tracking-widest">SAVE WITH A PLAN</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">Membership <span class="text-edge-secondary">Plans</span></h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4">Best for regular sharpening — save up to 30% compared to per-visit pricing</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="pricing-plan p-6 text-center relative"><div class="text-xl font-bold mb-2">Home Chef</div><div class="text-4xl font-bold text-edge-secondary mt-2">$29<span class="text-sm font-normal">/month</span></div><p class="text-sm text-gray-500 mt-1">Billed monthly • Cancel anytime</p><ul class="feature-list text-left mt-6 mb-6"><li><i class="fas fa-check-circle"></i> Up to 6 knives per month</li><li><i class="fas fa-check-circle"></i> 2 scissors/shears per month</li><li><i class="fas fa-check-circle"></i> Free edge test</li><li><i class="fas fa-check-circle"></i> Mobile service included</li><li><i class="fas fa-check-circle"></i> 10% off additional blades</li><li><i class="fas fa-check-circle"></i> Certificate of service</li></ul><a href="book.html" class="btn-outline w-full py-2 text-sm">Choose Plan</a></div>
+                <div class="pricing-plan p-6 text-center relative border-2 border-edge-secondary transform md:-translate-y-3"><div class="text-xl font-bold mb-2">Business Pro</div><div class="text-4xl font-bold text-edge-secondary mt-2">$79<span class="text-sm font-normal">/month</span></div><p class="text-sm text-gray-500 mt-1">Billed monthly • Cancel anytime</p><ul class="feature-list text-left mt-6 mb-6"><li><i class="fas fa-check-circle"></i> Up to 20 knives/blades</li><li><i class="fas fa-check-circle"></i> Up to 10 scissors/shears</li><li><i class="fas fa-check-circle"></i> Up to 8 garden tools</li><li><i class="fas fa-check-circle"></i> Weekly/bi-weekly service</li><li><i class="fas fa-check-circle"></i> Priority scheduling</li><li><i class="fas fa-check-circle"></i> 15% off restoration services</li></ul><a href="book.html" class="btn-primary w-full py-2 text-sm">Choose Plan</a></div>
+                <div class="pricing-plan p-6 text-center relative"><div class="text-xl font-bold mb-2">Industrial</div><div class="text-4xl font-bold text-edge-secondary mt-2">Custom</div><p class="text-sm text-gray-500 mt-1">Enterprise pricing</p><ul class="feature-list text-left mt-6 mb-6"><li><i class="fas fa-check-circle"></i> Unlimited blades</li><li><i class="fas fa-check-circle"></i> Dedicated technician</li><li><i class="fas fa-check-circle"></i> On-site service available</li><li><i class="fas fa-check-circle"></i> Quarterly maintenance plans</li><li><i class="fas fa-check-circle"></i> Volume discounts</li><li><i class="fas fa-check-circle"></i> Certificate of service</li></ul><a href="contact.html" class="btn-outline w-full py-2 text-sm">Contact Sales</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 4: Volume Discounts (Bulk Pricing) ========== -->
+    <section class="py-24 bg-white dark:bg-edge-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center"><img src="assests/hero_sharpening.png" alt="Professional blade sharpening service" class="rounded-2xl shadow-2xl w-full max-w-md"></div>
+                <div><h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Volume <span class="text-edge-secondary">Discounts</span></h2><p class="text-gray-600 dark:text-gray-300 mb-6">For restaurants, salons, workshops, and industrial facilities — the more you sharpen, the more you save.</p>
+                    <div class="space-y-3"><div class="volume-tier flex justify-between items-center p-3 rounded-xl border border-gray-200 dark:border-gray-700"><span class="font-semibold">20-49 blades</span><span class="text-edge-secondary font-bold">10% off</span></div><div class="volume-tier flex justify-between items-center p-3 rounded-xl border border-gray-200 dark:border-gray-700"><span class="font-semibold">50-99 blades</span><span class="text-edge-secondary font-bold">15% off + free pickup</span></div><div class="volume-tier flex justify-between items-center p-3 rounded-xl border border-gray-200 dark:border-gray-700"><span class="font-semibold">100+ blades</span><span class="text-edge-secondary font-bold">20% off + priority service</span></div><div class="volume-tier flex justify-between items-center p-3 rounded-xl border border-gray-200 dark:border-gray-700"><span class="font-semibold">250+ blades/year</span><span class="text-edge-secondary font-bold">Custom enterprise plan</span></div></div>
+                    <a href="contact.html" class="btn-primary mt-8"><i class="fas fa-chart-line"></i> Request Volume Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 5: What's Included + Value Add ========== -->
+    <section class="py-24 bg-edge-light dark:bg-edge-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-edge-secondary font-mono text-sm tracking-widest">VALUE GUARANTEE</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">What's <span class="text-edge-secondary">Included</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-edge-dark rounded-2xl p-6 text-center"><i class="fas fa-clipboard-list text-3xl text-edge-secondary mb-3"></i><h3 class="font-bold text-lg">Free Estimates</h3><p class="text-sm text-gray-500">No-obligation quotes — you approve the price before work begins.</p></div>
+                <div class="bg-white dark:bg-edge-dark rounded-2xl p-6 text-center"><i class="fas fa-truck-fast text-3xl text-edge-secondary mb-3"></i><h3 class="font-bold text-lg">Mobile Service</h3><p class="text-sm text-gray-500">We come to your home or business — no travel needed.</p></div>
+                <div class="bg-white dark:bg-edge-dark rounded-2xl p-6 text-center"><i class="fas fa-shield-alt text-3xl text-edge-secondary mb-3"></i><h3 class="font-bold text-lg">Satisfaction Guarantee</h3><p class="text-sm text-gray-500">Not happy? We'll re-sharpen for free or refund your money.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 6: FAQ + CTA ========== -->
+    <section class="py-24 bg-white dark:bg-edge-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="text-edge-secondary font-mono text-sm tracking-widest">QUESTIONS?</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-2">Pricing <span class="text-edge-secondary">FAQs</span></h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-12">
+                <div class="bg-edge-light dark:bg-edge-dark p-4 rounded-xl"><p class="font-bold mb-1">Is there a minimum service fee?</p><p class="text-sm text-gray-500">Yes — $20 minimum per visit. This covers travel and setup time.</p></div>
+                <div class="bg-edge-light dark:bg-edge-dark p-4 rounded-xl"><p class="font-bold mb-1">Do you charge extra for pickup/delivery?</p><p class="text-sm text-gray-500">No — mobile service is always included within our service area.</p></div>
+                <div class="bg-edge-light dark:bg-edge-dark p-4 rounded-xl"><p class="font-bold mb-1">How do you calculate the price?</p><p class="text-sm text-gray-500">By blade/tool type, not by time. You'll get a firm price before we start.</p></div>
+                <div class="bg-edge-light dark:bg-edge-dark p-4 rounded-xl"><p class="font-bold mb-1">Do you offer senior or military discounts?</p><p class="text-sm text-gray-500">Yes — 10% off for seniors, veterans, and active military.</p></div>
+            </div>
+            <div class="bg-gradient-to-r from-edge-primary to-edge-dark rounded-3xl p-8 text-white text-center"><i class="fas fa-calculator text-3xl mb-3"></i><h3 class="text-2xl font-bold mb-2">Need a Custom Quote?</h3><p class="text-white/80 mb-5">Contact us for bulk pricing, industrial accounts, or special requests</p><div class="flex flex-col sm:flex-row gap-4 justify-center"><a href="#" class="bg-edge-secondary hover:bg-white hover:text-edge-primary text-white px-8 py-3 rounded-full text-sm font-bold transition">Call (888) 555-0123</a><a href="#" class="border-2 border-white hover:bg-white hover:text-edge-primary text-white px-8 py-3 rounded-full text-sm font-bold transition">Get Free Quote →</a></div></div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="pt-16 pb-8 bg-edge-light dark:bg-edge-dark border-t border-edge-secondary/20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="text-center md:text-start"><div class="flex items-center gap-3 mb-6 justify-center md:justify-start group"><div class="bg-gradient-to-br from-edge-primary to-edge-dark p-2 rounded-xl shadow-md"><i class="fas fa-cut text-2xl text-edge-secondary group-hover:scale-110 transition-transform"></i></div><div class="flex flex-col text-left"><span class="text-xl md:text-2xl font-display font-bold tracking-tight"><span class="text-edge-primary dark:text-white">Edge</span><span class="text-edge-secondary">Fix</span></span></div></div><p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">Professional mobile sharpening and blade repair — transparent pricing, no hidden fees.</p><div class="flex gap-3 justify-center md:justify-start"><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-icon"><i class="fab fa-yelp"></i></a><a href="#" class="social-icon"><i class="fab fa-google"></i></a></div></div>
+                <div class="text-center md:text-start"><h3 class="text-gray-900 dark:text-white text-xl font-display font-bold mb-5 footer-heading">Pricing</h3><ul class="space-y-2 text-gray-600 dark:text-gray-300"><li><a href="#" class="hover:text-edge-secondary transition block">Per-Blade Rates</a></li><li><a href="#" class="hover:text-edge-secondary transition block">Membership Plans</a></li><li><a href="#" class="hover:text-edge-secondary transition block">Volume Discounts</a></li><li><a href="#" class="hover:text-edge-secondary transition block">Enterprise Quotes</a></li></ul></div>
+                <div class="text-center md:text-start"><h3 class="text-gray-900 dark:text-white text-xl font-display font-bold mb-5 footer-heading">Support</h3><ul class="space-y-2 text-gray-600 dark:text-gray-300"><li><a href="pricing.html#faqs" class="hover:text-edge-secondary transition block">Pricing FAQ</a></li><li><a href="pricing.html" class="hover:text-edge-secondary transition block">Calculate Cost</a></li><li><a href="book.html" class="hover:text-edge-secondary transition block">Book Appointment</a></li><li><a href="contact.html" class="hover:text-edge-secondary transition block">Contact</a></li></ul></div>
+                <div class="text-center md:text-start"><h3 class="text-gray-900 dark:text-white text-xl font-display font-bold mb-5 footer-heading">Contact</h3><ul class="space-y-3 text-gray-600 dark:text-gray-300"><li class="footer-contact-item justify-center md:justify-start"><i class="fas fa-map-marker-alt"></i><span>123 Sharp Street, Los Angeles, CA</span></li><li class="footer-contact-item justify-center md:justify-start"><i class="fas fa-phone"></i><span>(888) 555-0123</span></li><li class="footer-contact-item justify-center md:justify-start"><i class="fas fa-envelope"></i><span>pricing@edgefix.com</span></li></ul></div>
+            </div>
+            <div class="border-t border-edge-secondary/20 dark:border-white/10 mt-12 pt-8 text-center text-gray-500 dark:text-gray-400 text-xs font-mono"><p>© 2026 EdgeFix — Mobile Sharpening & Blade Repair Service. All rights reserved. #EdgeFixPricing</p></div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtn = document.getElementById('theme-toggle'), themeMob = document.getElementById('theme-toggle-mobile');
+            const updateThemeUI = (dark) => { [themeBtn, themeMob].forEach(b => { if(b){ let moon=b.querySelector('.fa-moon'), sun=b.querySelector('.fa-sun'); if(dark){ moon?.classList.add('hidden'); sun?.classList.remove('hidden'); } else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); } } }); };
+            const toggleTheme = () => { document.documentElement.classList.toggle('dark'); const isDark = document.documentElement.classList.contains('dark'); localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateThemeUI(isDark); };
+            if(themeBtn) themeBtn.addEventListener('click', toggleTheme); if(themeMob) themeMob.addEventListener('click', toggleTheme);
+            if(localStorage.getItem('theme') === 'dark') { document.documentElement.classList.add('dark'); updateThemeUI(true); }
+            const rtlBtn = document.getElementById('rtl-toggle'), rtlMob = document.getElementById('rtl-toggle-mobile');
+            const updateRtlUI = (isRtl) => { document.documentElement.dir = isRtl ? 'rtl' : 'ltr'; [rtlBtn, rtlMob].forEach(b => b && b.classList.toggle('active', isRtl)); };
+            const toggleRtl = () => { const isRtl = document.documentElement.dir !== 'rtl'; localStorage.setItem('dir', isRtl ? 'rtl' : 'ltr'); updateRtlUI(isRtl); };
+            if(rtlBtn) rtlBtn.addEventListener('click', toggleRtl); if(rtlMob) rtlMob.addEventListener('click', toggleRtl);
+            if(localStorage.getItem('dir') === 'rtl') updateRtlUI(true);
+            const mobileToggle = document.getElementById('mobile-toggle'), mobileMenu = document.getElementById('mobile-menu'), icon = mobileToggle?.querySelector('i');
+            if(mobileToggle) mobileToggle.addEventListener('click', () => { mobileMenu.classList.toggle('open'); icon?.classList.toggle('fa-bars'); icon?.classList.toggle('fa-times'); document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : ''; });
+            document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => { btn.addEventListener('click', () => { const content = btn.nextElementSibling; content.classList.toggle('show'); const chev = btn.querySelector('.fa-chevron-down'); if(chev) chev.style.transform = content.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0)'; }); });
+        });
+    </script>
+</body>
+</html>

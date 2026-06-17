@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blade Repair | EdgeFix – Professional Blade Restoration & Sharpening</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='75' font-size='75' text-anchor='middle'%3E⚔️%3C/text%3E%3C/svg%3E">
+    <meta name="description"
+        content="Professional blade repair services — chipped knives, broken tips, rusted tools, bent scissors, and edge restoration. We bring damaged blades back to life.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'edge-primary': '#2B4C7E',
+                        'edge-secondary': '#E07A5F',
+                        'edge-accent': '#A5CAD2',
+                        'edge-dark': '#0B0B0C',
+                        'edge-light': '#F4F6F9',
+                        'edge-steel': '#4A6B82',
+                        'edge-blade': '#7D9FB6',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['"Playfair Display"', 'serif'],
+                        'mono': ['"Fira Code"', 'monospace'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 3s linear infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                        glow: {
+                            '0%, 100%': { textShadow: '0 0 5px #E07A5F, 0 0 10px #E07A5F' },
+                            '50%': { textShadow: '0 0 20px #E07A5F, 0 0 30px #E07A5F' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; scrollbar-width: none; -ms-overflow-style: none; }
+        body::-webkit-scrollbar { display: none; }
+
+        .nav-item { position: relative; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.02em; transition: color 0.3s ease; padding: 0.5rem 0; cursor: pointer; }
+        .nav-item:hover, .nav-item.active { color: #E07A5F; }
+        .nav-item.active { font-weight: 700; }
+        .nav-item::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #E07A5F; transition: width 0.3s ease; }
+        .nav-item:hover::after, .nav-item.active::after { width: 100%; }
+
+        .dropdown { position: relative; }
+        .dropdown-menu { position: absolute; top: 100%; left: 0; min-width: 200px; background: #FFFFFF; border-radius: 12px; padding: 0.5rem 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; border: 1px solid #2B4C7E20; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
+        .dark .dropdown-menu { background: #151518; border-color: #26262B; }
+        .dropdown:hover .dropdown-menu, .dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-item { display: flex; align-items: center; padding: 0.6rem 1.2rem; gap: 10px; transition: all 0.2s; font-size: 0.85rem; cursor: pointer; }
+        .dropdown-item:hover { background: #2B4C7E10; color: #E07A5F; padding-left: 1.5rem; }
+        .dropdown-item.active { background: #2B4C7E05; color: #E07A5F; font-weight: 700; border-left: 3px solid #E07A5F; padding-left: 1.5rem; }
+        .dropdown-item i { width: 18px; color: #E07A5F; }
+
+        .auth-btn { padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 500; font-size: 0.85rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .auth-btn.login { background: transparent; border: 1.5px solid #E07A5F; color: #E07A5F; }
+        .auth-btn.login:hover { background: #E07A5F; color: #FFFFFF; }
+        .auth-btn.signup { background: #E07A5F; color: #FFFFFF; }
+        .auth-btn.signup:hover { background: #C55D42; color: #FFFFFF; transform: translateY(-2px); }
+
+        .toggle-btn { width: 36px; height: 36px; border-radius: 40px; background: #F0F0F0; color: #2B4C7E; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; }
+        .dark .toggle-btn { background: #151518; color: #FFFFFF; }
+        .toggle-btn:hover { background: #E07A5F; color: white; transform: rotate(15deg); }
+
+        .repair-card { background: #FFFFFF; border-radius: 28px; transition: all 0.4s ease; overflow: hidden; border: 1px solid #E8E8E8; }
+        .dark .repair-card { background: #151518; border-color: #26262B; }
+        .repair-card:hover { transform: translateY(-8px); border-color: #E07A5F; box-shadow: 0 25px 40px -15px rgba(224, 122, 95, 0.25); }
+
+        .btn-primary { background: #E07A5F; color: #FFFFFF; padding: 0.8rem 2rem; border-radius: 60px; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; justify-content: center; }
+        .btn-primary:hover { background: #C55D42; color: #FFFFFF; transform: scale(1.03); }
+        .btn-outline { border: 2px solid #E07A5F; background: transparent; color: #E07A5F; padding: 0.75rem 2rem; border-radius: 60px; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-outline:hover { background: #E07A5F; color: #FFFFFF; }
+
+        .social-icon { width: 40px; height: 40px; background: rgba(0, 0, 0, 0.05); display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; transition: all 0.3s; color: #E07A5F; }
+        .dark .social-icon { background: rgba(255, 255, 255, 0.1); }
+        .social-icon:hover { background: #E07A5F !important; color: #FFFFFF; transform: translateY(-3px); }
+
+        .mobile-menu { background: #FFFFFF; max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+        .dark .mobile-menu { background: #151518; }
+        .mobile-menu.open { max-height: 80vh; overflow-y: auto; }
+        .mobile-menu-item { display: block; padding: 1rem 1.5rem; border-bottom: 1px solid #E8E8E8; font-weight: 500; transition: all 0.3s; cursor: pointer; }
+        .dark .mobile-menu-item { border-bottom-color: #26262B; }
+        .mobile-menu-item.active { color: #E07A5F; font-weight: 700; background: rgba(224, 122, 95, 0.05); border-left: 4px solid #E07A5F; padding-left: calc(1.5rem - 4px); }
+        [dir="rtl"] .mobile-menu-item.active { border-left: none; border-right: 4px solid #E07A5F; padding-left: 1.5rem; padding-right: calc(1.5rem - 4px); }
+        .mobile-dropdown-content { max-height: 0; overflow: hidden; transition: max-height 0.3s; background: #F8F8F8; }
+        .dark .mobile-dropdown-content { background: #0B0B0C; }
+        .mobile-dropdown-content.show { max-height: 200px; }
+        .footer-heading { position: relative; padding-bottom: 0.5rem; display: inline-block; }
+        @media (min-width: 768px) { .footer-heading { display: block; padding-bottom: 0; border-left: 3px solid #E07A5F; padding-left: 0.75rem; } }
+        [dir="rtl"] .footer-heading { border-left: none; border-right: 3px solid #E07A5F; padding-left: 0; padding-right: 0.75rem; }
+        .footer-contact-item { display: flex; gap: 0.75rem; align-items: center; }
+        .footer-contact-item i { width: 20px; color: #E07A5F; }
+
+        .damage-badge { background: linear-gradient(135deg, #E07A5F15 0%, #2B4C7E15 100%); border-radius: 100px; padding: 4px 12px; font-size: 0.7rem; font-weight: 600; color: #E07A5F; }
+        .process-step { transition: all 0.3s ease; }
+        .process-step:hover { transform: translateX(5px); }
+        [dir="rtl"] .process-step:hover { transform: translateX(-5px); }
+        
+        .before-after-card { transition: all 0.3s ease; cursor: pointer; }
+        .before-after-card:hover { transform: scale(1.02); }
+    </style>
+</head>
+<body class="bg-edge-light dark:bg-edge-dark text-gray-900 dark:text-gray-100">
+
+    <!-- ========== HEADER ========== -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-edge-dark border-b border-edge-secondary/30 shadow-md transition-all duration-300">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <div class="bg-gradient-to-br from-edge-primary to-edge-dark p-2 rounded-xl shadow-md">
+                            <i class="fas fa-cut text-2xl text-edge-secondary group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xl md:text-2xl font-display font-bold tracking-tight">
+                                <span class="text-edge-primary dark:text-white">Edge</span><span class="text-edge-secondary">Fix</span>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hidden xl:flex items-center justify-center flex-1 mx-8">
+                    <div class="flex items-center gap-6">
+                        <div class="dropdown">
+                            <button class="nav-item flex items-center gap-1">Home <i class="fas fa-chevron-down text-[10px]"></i></button>
+                            <div class="dropdown-menu">
+                                <a href="index.html" class="dropdown-item">Home 1</a>
+                                <a href="home2.html" class="dropdown-item">Home 2</a>
+                            </div>
+                        </div>
+                        <a href="about.html" class="nav-item">About</a>
+                        <a href="service.html" class="nav-item">Services</a>
+                        <a href="repair.html" class="nav-item active">Repair</a>
+                        <a href="pricing.html" class="nav-item">Pricing</a>
+                        <a href="gallery.html" class="nav-item">Gallery</a>
+                        <a href="doorstep.html" class="nav-item">Doorstep</a>
+                        <a href="book.html" class="nav-item">Book</a>
+                        <a href="contact.html" class="nav-item">Contact</a>
+                    </div>
+                </div>
+
+                <div class="hidden xl:flex items-center gap-3">
+                    <button id="theme-toggle" class="toggle-btn" title="Theme"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+                    <button id="rtl-toggle" class="toggle-btn" title="RTL">⇄</button>
+                    <a href="login.html" class="auth-btn login"><i class="fas fa-user-circle"></i> Login</a>
+                    <a href="signup.html" class="auth-btn signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+                </div>
+
+                <div class="xl:hidden flex items-center">
+                    <button id="mobile-toggle" class="text-gray-800 dark:text-white p-2 text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="mobile-menu xl:hidden">
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-btn flex justify-between items-center w-full mobile-menu-item">Home <i class="fas fa-chevron-down text-xs"></i></button>
+                    <div class="mobile-dropdown-content"><a href="index.html" class="block px-8 py-2 text-sm">Home 1</a><a href="home2.html" class="block px-8 py-2 text-sm">Home 2</a></div>
+                </div>
+                <a href="about.html" class="mobile-menu-item">About</a>
+                <a href="service.html" class="mobile-menu-item">Services</a>
+                <a href="repair.html" class="mobile-menu-item active">Repair</a>
+                <a href="pricing.html" class="mobile-menu-item">Pricing</a>
+                <a href="gallery.html" class="mobile-menu-item">Gallery</a>
+                <a href="doorstep.html" class="mobile-menu-item">Doorstep</a>
+                <a href="book.html" class="mobile-menu-item">Book</a>
+                <a href="contact.html" class="mobile-menu-item">Contact</a>
+                <div class="p-6 border-t border-edge-secondary/20">
+                    <div class="flex justify-center gap-3 mb-4">
+                        <button id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+                        <button id="rtl-toggle-mobile" class="toggle-btn">⇄</button>
+                    </div>
+                    <div class="flex justify-center gap-3">
+                        <a href="login.html" class="auth-btn login text-sm flex items-center justify-center flex-1">Login</a>
+                        <a href="signup.html" class="auth-btn signup text-sm flex items-center justify-center flex-1">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== SECTION 1: HERO - Blade Repair ========== -->
+    <section class="relative pt-40 pb-28 md:pt-52 md:pb-36 overflow-hidden bg-gradient-to-br from-edge-primary via-edge-primary to-edge-dark">
+        <div class="absolute inset-0 opacity-10"><svg class="w-full h-full"><pattern id="blade" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M30,5 L55,30 L30,55 L5,30 Z" fill="none" stroke="#E07A5F" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#blade)"/></svg></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 bg-edge-secondary/20 backdrop-blur-sm px-5 py-2 rounded-full mb-6 border border-edge-secondary/30">
+                    <i class="fas fa-tools text-edge-secondary text-sm"></i>
+                    <span class="text-edge-secondary font-mono text-sm tracking-wider">BLADE REPAIR & RESTORATION</span>
+                </div>
+                <h1 class="text-3xl md:text-6xl font-display font-bold leading-tight text-white drop-shadow-lg">
+                    Bring Damaged <span class="text-edge-secondary">Blades</span> Back to Life
+                </h1>
+                <div class="w-20 h-1 bg-edge-secondary mx-auto my-6 shadow-sm"></div>
+                <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-light">
+                    Chipped, bent, rusted, or broken — our expert technicians restore your blades to like-new condition. Mobile service, guaranteed results.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center mt-8">
+                    <a href="contact.html" class="btn-primary shadow-lg"><i class="fas fa-clipboard-list"></i> Get Repair Quote</a>
+                    <a href="#" class="btn-outline border-white text-white hover:bg-white hover:text-edge-primary"><i class="fas fa-phone"></i> Emergency Repair (888) 555-0123</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 2: Premium Restoration (Bento Layout) ========== -->
+    <section class="py-24 bg-white dark:bg-edge-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-edge-secondary font-mono text-sm tracking-widest">ADVANCED CAPABILITIES</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">Specialized <span class="text-edge-secondary">Restoration</span></h2>
+                <div class="w-20 h-1 bg-edge-secondary mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Bento Block 1 (Large) -->
+                <div class="md:col-span-2 bg-edge-primary rounded-3xl relative overflow-hidden flex flex-col justify-end min-h-[350px] shadow-2xl group cursor-pointer">
+                    <img src="assests/sharping.jpg" alt="Restoration" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-edge-dark via-edge-dark/50 to-transparent"></div>
+                    <div class="relative z-10 p-10">
+                        <div class="inline-block bg-edge-secondary text-white text-xs font-bold px-3 py-1 rounded-full mb-4">Precision</div>
+                        <h3 class="text-3xl font-display font-bold text-white mb-3">Complete Edge Reconstruction</h3>
+                        <p class="text-gray-300 max-w-lg leading-relaxed">For severely damaged, snapped, or heavily chipped blades. We utilize careful re-profiling to build back the lost steel and restore the knife's original geometry without compromising the temper.</p>
+                    </div>
+                </div>
+
+                <!-- Bento Block 2 (Small) -->
+                <div class="bg-edge-light dark:bg-[#151518] border border-gray-100 dark:border-gray-800 p-8 rounded-3xl shadow-lg hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-16 h-16 rounded-full bg-edge-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-edge-secondary/20 transition-all">
+                        <i class="fas fa-hammer text-2xl text-edge-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Heirloom Rescue</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Careful, non-destructive rust removal, polishing, and preservation for delicate family heirlooms and vintage tools.</p>
+                </div>
+
+                <!-- Bento Block 3 (Small) -->
+                <div class="bg-edge-light dark:bg-[#151518] border border-gray-100 dark:border-gray-800 p-8 rounded-3xl shadow-lg hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="w-16 h-16 rounded-full bg-edge-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-edge-secondary/20 transition-all">
+                        <i class="fas fa-hand-sparkles text-2xl text-edge-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Handle Refinishing</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Repairing cracked wooden handles, replacing loose rivets, and applying premium oils to restore the perfect grip.</p>
+                </div>
+
+                <!-- Bento Block 4 (Large) -->
+                <div class="md:col-span-2 bg-gradient-to-br from-edge-secondary to-orange-400 rounded-3xl p-10 flex flex-col justify-center shadow-[0_15px_40px_rgba(224,122,95,0.3)] hover:shadow-[0_20px_50px_rgba(224,122,95,0.5)] transition-shadow duration-500 relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 opacity-10">
+                        <i class="fas fa-fire-burner text-[200px]"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-display font-bold text-white mb-3">Surface Polishing & Damascus Etching</h3>
+                        <p class="text-white/90 max-w-lg leading-relaxed mb-6">We bring back the flawless mirror finish on your high-end chef knives, or carefully restore the beautiful, intricate acid-etched patterns on premium Damascus steel blades.</p>
+                        <a href="contact.html" class="inline-block bg-white text-edge-secondary font-bold px-6 py-2 rounded-full hover:bg-gray-50 transition-colors shadow-md">Request Custom Quote &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 3: Repair Process (Step-by-Step) ========== -->
+    <section class="py-24 bg-gradient-to-r from-edge-light to-white dark:from-edge-dark dark:to-edge-dark/80">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-14">
+                <span class="text-edge-secondary font-mono text-sm tracking-widest">OUR PROCESS</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">How Blade <span class="text-edge-secondary">Repair Works</span></h2>
+            </div>
+            <div class="max-w-4xl mx-auto space-y-4">
+                <div class="process-step bg-white dark:bg-edge-dark p-5 rounded-2xl shadow-sm flex items-center gap-5"><div class="w-12 h-12 bg-edge-secondary/20 rounded-full flex items-center justify-center flex-shrink-0"><span class="text-xl font-bold text-edge-secondary">1</span></div><div><h3 class="font-bold text-lg">Inspection & Diagnosis</h3><p class="text-sm text-gray-500">We assess the damage and provide a free, no-obligation repair estimate.</p></div></div>
+                <div class="process-step bg-white dark:bg-edge-dark p-5 rounded-2xl shadow-sm flex items-center gap-5"><div class="w-12 h-12 bg-edge-secondary/20 rounded-full flex items-center justify-center flex-shrink-0"><span class="text-xl font-bold text-edge-secondary">2</span></div><div><h3 class="font-bold text-lg">Disassembly (if needed)</h3><p class="text-sm text-gray-500">Scissors, shears, and multi-tools are carefully disassembled for thorough repair.</p></div></div>
+                <div class="process-step bg-white dark:bg-edge-dark p-5 rounded-2xl shadow-sm flex items-center gap-5"><div class="w-12 h-12 bg-edge-secondary/20 rounded-full flex items-center justify-center flex-shrink-0"><span class="text-xl font-bold text-edge-secondary">3</span></div><div><h3 class="font-bold text-lg">Precision Repair</h3><p class="text-sm text-gray-500">Grinding, straightening, rust removal, and edge reprofiling using professional equipment.</p></div></div>
+                <div class="process-step bg-white dark:bg-edge-dark p-5 rounded-2xl shadow-sm flex items-center gap-5"><div class="w-12 h-12 bg-edge-secondary/20 rounded-full flex items-center justify-center flex-shrink-0"><span class="text-xl font-bold text-edge-secondary">4</span></div><div><h3 class="font-bold text-lg">Sharpening & Finishing</h3><p class="text-sm text-gray-500">Final edge sharpening, polishing, and protective coating application.</p></div></div>
+                <div class="process-step bg-white dark:bg-edge-dark p-5 rounded-2xl shadow-sm flex items-center gap-5"><div class="w-12 h-12 bg-edge-secondary/20 rounded-full flex items-center justify-center flex-shrink-0"><span class="text-xl font-bold text-edge-secondary">5</span></div><div><h3 class="font-bold text-lg">Quality Test & Return</h3><p class="text-sm text-gray-500">Edge test, alignment check, and we deliver back to your doorstep.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 4: Before & After Gallery ========== -->
+    <section class="py-24 bg-white dark:bg-edge-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-14">
+                <span class="text-edge-secondary font-mono text-sm tracking-widest">REAL RESULTS</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">Before & <span class="text-edge-secondary">After</span></h2>
+                <div class="w-20 h-1 bg-edge-secondary mx-auto mt-4"></div>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+                <!-- Card 1 -->
+                <div class="before-after-card rounded-2xl overflow-hidden shadow-lg group cursor-ew-resize h-full flex flex-col">
+                    <div class="relative w-full h-64 flex-shrink-0">
+                        <img src="assests/polish.jpg" class="absolute inset-0 w-full h-full object-cover" alt="After Restored Edge">
+                        <img src="assests/knife_bef.jpg" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0" alt="Before Rusty Knife">
+                        <div class="absolute top-3 left-3 pointer-events-none group-hover:opacity-0 transition-opacity duration-700">
+                            <span class="bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded text-xs font-bold uppercase tracking-widest">Before</span>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-black/10">
+                            <span class="bg-edge-secondary text-white font-bold px-4 py-2 rounded-full text-xs shadow-xl uppercase tracking-widest border-2 border-white/20">After View</span>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-edge-light dark:bg-edge-dark border-t border-gray-100 dark:border-gray-800 flex-grow flex flex-col justify-between">
+                        <p class="text-sm font-bold text-gray-900 dark:text-white">Rusty Kitchen Knife → Restored Edge</p>
+                        <div class="flex justify-between items-center mt-3">
+                            <span class="text-xs text-edge-secondary font-medium">Hover to Reveal Result</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="before-after-card rounded-2xl overflow-hidden shadow-lg group cursor-ew-resize h-full flex flex-col">
+                    <div class="relative w-full h-64 flex-shrink-0">
+                        <img src="assests/cut2.png" class="absolute inset-0 w-full h-full object-cover" alt="After Reprofiled Knife">
+                        <img src="assests/cut.png" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0" alt="Before Chipped Knife">
+                        <div class="absolute top-3 left-3 pointer-events-none group-hover:opacity-0 transition-opacity duration-700">
+                            <span class="bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded text-xs font-bold uppercase tracking-widest">Before</span>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-black/10">
+                            <span class="bg-edge-secondary text-white font-bold px-4 py-2 rounded-full text-xs shadow-xl uppercase tracking-widest border-2 border-white/20">After View</span>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-edge-light dark:bg-edge-dark border-t border-gray-100 dark:border-gray-800 flex-grow flex flex-col justify-between">
+                        <p class="text-sm font-bold text-gray-900 dark:text-white">Chipped Chef's Knife → Reprofiled</p>
+                        <div class="flex justify-between items-center mt-3">
+                            <span class="text-xs text-edge-secondary font-medium">Hover to Reveal Result</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="before-after-card rounded-2xl overflow-hidden shadow-lg group cursor-ew-resize h-full flex flex-col">
+                    <div class="relative w-full h-64 flex-shrink-0">
+                        <img src="assests/real.png" class="absolute inset-0 w-full h-full object-cover" alt="After Restored Scissors">
+                        <img src="assests/bent.png" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0" alt="Before Bent Scissors">
+                        <div class="absolute top-3 left-3 pointer-events-none group-hover:opacity-0 transition-opacity duration-700">
+                            <span class="bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded text-xs font-bold uppercase tracking-widest">Before</span>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-black/10">
+                            <span class="bg-edge-secondary text-white font-bold px-4 py-2 rounded-full text-xs shadow-xl uppercase tracking-widest border-2 border-white/20">After View</span>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-edge-light dark:bg-edge-dark border-t border-gray-100 dark:border-gray-800 flex-grow flex flex-col justify-between">
+                        <p class="text-sm font-bold text-gray-900 dark:text-white">Bent Scissors → Realigned</p>
+                        <div class="flex justify-between items-center mt-3">
+                            <span class="text-xs text-edge-secondary font-medium">Hover to Reveal Result</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8"><a href="service.html" class="text-edge-secondary hover:underline font-semibold text-sm">View More Restoration Projects →</a></div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 5: Repair Pricing Guide ========== -->
+    <section class="py-24 bg-edge-light dark:bg-edge-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-edge-secondary font-mono text-sm tracking-widest">AFFORDABLE REPAIRS</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mt-4">Repair <span class="text-edge-secondary">Pricing</span></h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto items-stretch">
+                <div class="bg-white dark:bg-edge-dark p-4 rounded-xl text-center border border-edge-secondary/20"><i class="fas fa-kitchen-set text-edge-secondary mb-2"></i><p class="font-bold">Knife Chip Repair</p><p class="text-2xl font-bold text-edge-secondary">$12<span class="text-sm">/blade</span></p></div>
+                <div class="bg-white dark:bg-edge-dark p-4 rounded-xl text-center border border-edge-secondary/20"><i class="fas fa-cut text-edge-secondary mb-2"></i><p class="font-bold">Scissor Repair</p><p class="text-2xl font-bold text-edge-secondary">$15<span class="text-sm">/pair</span></p></div>
+                <div class="bg-white dark:bg-edge-dark p-4 rounded-xl text-center border border-edge-secondary/20"><i class="fas fa-leaf text-edge-secondary mb-2"></i><p class="font-bold">Tool Rust Removal</p><p class="text-2xl font-bold text-edge-secondary">$18<span class="text-sm">/tool</span></p></div>
+                <div class="bg-white dark:bg-edge-dark p-4 rounded-xl text-center border border-edge-secondary/20"><i class="fas fa-saw text-edge-secondary mb-2"></i><p class="font-bold">Saw Blade Repair</p><p class="text-2xl font-bold text-edge-secondary">$20<span class="text-sm">/blade</span></p></div>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-6">*Volume discounts available for businesses and bulk repairs. Free estimates always.</p>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 6: Emergency Repair & Warranty ========== -->
+    <section class="py-24 bg-white dark:bg-edge-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-edge-primary to-edge-dark rounded-3xl p-8 text-white text-center"><i class="fas fa-clock text-4xl mb-3"></i><h3 class="text-2xl font-bold mb-2">Emergency Repair Service</h3><p class="text-white/80 mb-4">Same-day or next-day emergency blade repair for businesses — restaurants, salons, and industrial facilities.</p><div class="flex justify-center"><a href="#" class="bg-edge-secondary hover:bg-white hover:text-edge-primary text-white px-6 py-2 rounded-full text-sm font-bold transition">Call Emergency Line →</a></div></div>
+                <div class="bg-edge-light dark:bg-edge-dark rounded-3xl p-8 text-center border border-edge-secondary/20"><i class="fas fa-screwdriver-wrench text-4xl text-edge-secondary mb-3"></i><h3 class="text-2xl font-bold mb-2">Repair Guarantee</h3><p class="text-gray-600 dark:text-gray-300 mb-4">All repairs come with a 90-day warranty. If your blade fails within 90 days, we'll re-repair it for free.</p><ul class="text-sm text-left space-y-2"><li class="flex items-center gap-2"><i class="fas fa-circle-check text-edge-secondary"></i> Quality tested before return</li><li class="flex items-center gap-2"><i class="fas fa-circle-check text-edge-secondary"></i> Same-day service available</li><li class="flex items-center gap-2"><i class="fas fa-circle-check text-edge-secondary"></i> Free pickup & delivery within 20 miles</li></ul></div>
+            </div>
+            <div class="mt-12 text-center p-6 bg-edge-secondary/10 rounded-2xl"><i class="fas fa-shield-halved text-edge-secondary text-2xl mr-2"></i><span class="font-semibold">Not sure if we can fix it?</span><span class="text-gray-600 dark:text-gray-300 ml-2">Send us a photo of the damage — we'll give you a free assessment and quote.</span><a href="contact.html" class="ml-4 text-edge-secondary font-bold hover:underline">Send Photo →</a></div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="pt-16 pb-8 bg-edge-light dark:bg-edge-dark border-t border-edge-secondary/20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="text-center md:text-start"><div class="flex items-center gap-3 mb-6 justify-center md:justify-start group"><div class="bg-gradient-to-br from-edge-primary to-edge-dark p-2 rounded-xl shadow-md"><i class="fas fa-cut text-2xl text-edge-secondary group-hover:scale-110 transition-transform"></i></div><div class="flex flex-col text-left"><span class="text-xl md:text-2xl font-display font-bold tracking-tight"><span class="text-edge-primary dark:text-white">Edge</span><span class="text-edge-secondary">Fix</span></span></div></div><p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">Professional mobile sharpening and blade repair service — we bring damaged blades back to life.</p><div class="flex gap-3 justify-center md:justify-start"><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-icon"><i class="fab fa-yelp"></i></a><a href="#" class="social-icon"><i class="fab fa-google"></i></a></div></div>
+                <div class="text-center md:text-start"><h3 class="text-gray-900 dark:text-white text-xl font-display font-bold mb-5 footer-heading">Repair Services</h3><ul class="space-y-2 text-gray-600 dark:text-gray-300"><li><a href="#" class="hover:text-edge-secondary transition block">Knife Chip Repair</a></li><li><a href="#" class="hover:text-edge-secondary transition block">Scissor Repair</a></li><li><a href="#" class="hover:text-edge-secondary transition block">Rust Removal</a></li><li><a href="#" class="hover:text-edge-secondary transition block">Tool Restoration</a></li></ul></div>
+                <div class="text-center md:text-start"><h3 class="text-gray-900 dark:text-white text-xl font-display font-bold mb-5 footer-heading">Quick Links</h3><ul class="space-y-2 text-gray-600 dark:text-gray-300"><li><a href="#" class="hover:text-edge-secondary transition block">Emergency Repair</a></li><li><a href="#" class="hover:text-edge-secondary transition block">Warranty Info</a></li><li><a href="contact.html#faqs" class="hover:text-edge-secondary transition block">FAQs</a></li><li><a href="book.html" class="hover:text-edge-secondary transition block">Book Appointment</a></li></ul></div>
+                <div class="text-center md:text-start"><h3 class="text-gray-900 dark:text-white text-xl font-display font-bold mb-5 footer-heading">Contact</h3><ul class="space-y-3 text-gray-600 dark:text-gray-300"><li class="footer-contact-item justify-center md:justify-start"><i class="fas fa-map-marker-alt"></i><span>123 Sharp Street, Los Angeles, CA</span></li><li class="footer-contact-item justify-center md:justify-start"><i class="fas fa-phone"></i><span>(888) 555-0123</span></li><li class="footer-contact-item justify-center md:justify-start"><i class="fas fa-envelope"></i><span>repair@edgefix.com</span></li></ul></div>
+            </div>
+            <div class="border-t border-edge-secondary/20 dark:border-white/10 mt-12 pt-8 text-center text-gray-500 dark:text-gray-400 text-xs font-mono"><p>© 2026 EdgeFix — Mobile Sharpening & Blade Repair Service. All rights reserved. #EdgeFixRepair</p></div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtn = document.getElementById('theme-toggle'), themeMob = document.getElementById('theme-toggle-mobile');
+            const updateThemeUI = (dark) => { [themeBtn, themeMob].forEach(b => { if(b){ let moon=b.querySelector('.fa-moon'), sun=b.querySelector('.fa-sun'); if(dark){ moon?.classList.add('hidden'); sun?.classList.remove('hidden'); } else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); } } }); };
+            const toggleTheme = () => { document.documentElement.classList.toggle('dark'); const isDark = document.documentElement.classList.contains('dark'); localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateThemeUI(isDark); };
+            if(themeBtn) themeBtn.addEventListener('click', toggleTheme); if(themeMob) themeMob.addEventListener('click', toggleTheme);
+            if(localStorage.getItem('theme') === 'dark') { document.documentElement.classList.add('dark'); updateThemeUI(true); }
+            const rtlBtn = document.getElementById('rtl-toggle'), rtlMob = document.getElementById('rtl-toggle-mobile');
+            const updateRtlUI = (isRtl) => { document.documentElement.dir = isRtl ? 'rtl' : 'ltr'; [rtlBtn, rtlMob].forEach(b => b && b.classList.toggle('active', isRtl)); };
+            const toggleRtl = () => { const isRtl = document.documentElement.dir !== 'rtl'; localStorage.setItem('dir', isRtl ? 'rtl' : 'ltr'); updateRtlUI(isRtl); };
+            if(rtlBtn) rtlBtn.addEventListener('click', toggleRtl); if(rtlMob) rtlMob.addEventListener('click', toggleRtl);
+            if(localStorage.getItem('dir') === 'rtl') updateRtlUI(true);
+            const mobileToggle = document.getElementById('mobile-toggle'), mobileMenu = document.getElementById('mobile-menu'), icon = mobileToggle?.querySelector('i');
+            if(mobileToggle) mobileToggle.addEventListener('click', () => { mobileMenu.classList.toggle('open'); icon?.classList.toggle('fa-bars'); icon?.classList.toggle('fa-times'); document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : ''; });
+            document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => { btn.addEventListener('click', () => { const content = btn.nextElementSibling; content.classList.toggle('show'); const chev = btn.querySelector('.fa-chevron-down'); if(chev) chev.style.transform = content.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0)'; }); });
+        });
+    </script>
+</body>
+</html>

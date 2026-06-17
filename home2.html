@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>EdgeFix | Mobile Sharpening & Blade Repair – Professional Precision</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='75' font-size='75' text-anchor='middle'%3E⚔️%3C/text%3E%3C/svg%3E">
+    <meta name="description"
+        content="Professional mobile sharpening service for knives, scissors, garden tools, saw blades, and industrial cutters. We come to you — precision edge repair with 100% satisfaction guarantee.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'edge-primary': '#2B4C7E',
+                        'edge-secondary': '#E07A5F',
+                        'edge-accent': '#A5CAD2',
+                        'edge-dark': '#0B0B0C',
+                        'edge-light': '#F4F6F9',
+                        'edge-steel': '#4A6B82',
+                        'edge-blade': '#7D9FB6',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['"Playfair Display"', 'serif'],
+                        'mono': ['"Fira Code"', 'monospace'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 3s linear infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-15px)' } },
+                        shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+                    },
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; scrollbar-width: none; -ms-overflow-style: none; }
+        body::-webkit-scrollbar { display: none; }
+
+        .nav-item { position: relative; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.02em; transition: color 0.3s ease; padding: 0.5rem 0; cursor: pointer; }
+        .nav-item:hover, .nav-item.active { color: #E07A5F; }
+        .nav-item.active { font-weight: 700; }
+        .nav-item::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #E07A5F; transition: width 0.3s ease; }
+        .nav-item:hover::after, .nav-item.active::after { width: 100%; }
+
+        .dropdown { position: relative; }
+        .dropdown-menu { position: absolute; top: 100%; left: 0; min-width: 200px; background: #FFFFFF; border-radius: 12px; padding: 0.5rem 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; border: 1px solid #2B4C7E20; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
+        .dark .dropdown-menu { background: #151518; border-color: #26262B; }
+        .dropdown:hover .dropdown-menu, .dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-item { display: flex; align-items: center; padding: 0.6rem 1.2rem; gap: 10px; transition: all 0.2s; font-size: 0.85rem; cursor: pointer; }
+        .dropdown-item:hover { background: #2B4C7E10; color: #E07A5F; padding-left: 1.5rem; }
+        .dropdown-item.active { background: #2B4C7E05; color: #E07A5F; font-weight: 700; border-left: 3px solid #E07A5F; padding-left: 1.5rem; }
+        .dropdown-item i { width: 18px; color: #E07A5F; }
+
+        .auth-btn { padding: 0.5rem 1.5rem; border-radius: 40px; font-weight: 500; font-size: 0.85rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .auth-btn.login { background: transparent; border: 1.5px solid #E07A5F; color: #E07A5F; }
+        .auth-btn.login:hover { background: #E07A5F; color: #FFFFFF; }
+        .auth-btn.signup { background: #E07A5F; color: #FFFFFF; }
+        .auth-btn.signup:hover { background: #C55D42; color: #FFFFFF; transform: translateY(-2px); }
+
+        .toggle-btn { width: 36px; height: 36px; border-radius: 40px; background: #F0F0F0; color: #2B4C7E; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; }
+        .dark .toggle-btn { background: #151518; color: #FFFFFF; }
+        .toggle-btn:hover { background: #E07A5F; color: white; transform: rotate(15deg); }
+
+        .service-card { background: #FFFFFF; border-radius: 28px; transition: all 0.4s ease; overflow: hidden; border: 1px solid #E8E8E8; }
+        .dark .service-card { background: #151518; border-color: #26262B; }
+        .service-card:hover { transform: translateY(-8px); border-color: #E07A5F; box-shadow: 0 25px 40px -15px rgba(224, 122, 95, 0.25); }
+
+        .btn-primary { background: #E07A5F; color: #FFFFFF; padding: 0.8rem 2rem; border-radius: 60px; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; justify-content: center; }
+        .btn-primary:hover { background: #C55D42; color: #FFFFFF; transform: scale(1.03); }
+        .btn-outline { border: 2px solid #E07A5F; background: transparent; color: #E07A5F; padding: 0.75rem 2rem; border-radius: 60px; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-outline:hover { background: #E07A5F; color: #FFFFFF; }
+
+        .social-icon { width: 40px; height: 40px; background: rgba(0, 0, 0, 0.05); display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; transition: all 0.3s; color: #E07A5F; }
+        .dark .social-icon { background: rgba(255, 255, 255, 0.1); }
+        .social-icon:hover { background: #E07A5F !important; color: #FFFFFF; transform: translateY(-3px); }
+
+        .mobile-menu { background: #FFFFFF; max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+        .dark .mobile-menu { background: #151518; }
+        .mobile-menu.open { max-height: 80vh; overflow-y: auto; }
+        .mobile-menu-item { display: block; padding: 1rem 1.5rem; border-bottom: 1px solid #E8E8E8; font-weight: 500; transition: all 0.3s; cursor: pointer; }
+        .dark .mobile-menu-item { border-bottom-color: #26262B; }
+        .mobile-menu-item.active { color: #E07A5F; font-weight: 700; background: rgba(224, 122, 95, 0.05); border-left: 4px solid #E07A5F; padding-left: calc(1.5rem - 4px); }
+        [dir="rtl"] .mobile-menu-item.active { border-left: none; border-right: 4px solid #E07A5F; padding-left: 1.5rem; padding-right: calc(1.5rem - 4px); }
+        .mobile-dropdown-content { max-height: 0; overflow: hidden; transition: max-height 0.3s; background: #F8F8F8; }
+        .dark .mobile-dropdown-content { background: #0B0B0C; }
+        .mobile-dropdown-content.show { max-height: 200px; }
+        .footer-heading { position: relative; padding-bottom: 0.5rem; display: inline-block; }
+        @media (min-width: 768px) { .footer-heading { display: block; padding-bottom: 0; border-left: 3px solid #E07A5F; padding-left: 0.75rem; } }
+        [dir="rtl"] .footer-heading { border-left: none; border-right: 3px solid #E07A5F; padding-left: 0; padding-right: 0.75rem; }
+        .footer-contact-item { display: flex; gap: 0.75rem; align-items: center; }
+        .footer-contact-item i { width: 20px; color: #E07A5F; }
+
+        .hero-section { background: linear-gradient(135deg, #2B4C7E 0%, #1a3a5c 100%); }
+        .dark .hero-section { background: linear-gradient(135deg, #1a3a5c 0%, #0B1A2E 100%); }
+        
+        .floating-particle { position: fixed; pointer-events: none; z-index: 0; opacity: 0.12; font-size: 24px; }
+        
+        .process-step { transition: all 0.3s ease; }
+        .process-step:hover { transform: translateY(-5px); }
+        
+        .testimonial-card { transition: all 0.3s ease; }
+        .testimonial-card:hover { transform: translateY(-5px); border-color: #E07A5F; }
+        
+        .stat-card { transition: all 0.3s ease; }
+        .stat-card:hover { transform: translateY(-5px); }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up { animation: fadeInUp 0.8s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-edge-light dark:bg-edge-dark text-gray-900 dark:text-gray-100">
+
+    <!-- Floating particles -->
+    <div class="floating-particle left-[5%] top-[15%] animate-float">⚔️</div>
+    <div class="floating-particle right-[8%] top-[25%] animate-float" style="animation-delay: 2s;">🔪</div>
+    <div class="floating-particle left-[10%] bottom-[20%] animate-float" style="animation-delay: 4s;">✂️</div>
+    <div class="floating-particle right-[12%] bottom-[30%] animate-float" style="animation-delay: 3s;">🪚</div>
+
+    <!-- ========== HEADER ========== -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-edge-dark border-b border-edge-secondary/30 shadow-md transition-all duration-300">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <div class="bg-gradient-to-br from-edge-primary to-edge-dark p-2 rounded-xl shadow-md">
+                            <i class="fas fa-cut text-2xl text-edge-secondary group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xl md:text-2xl font-display font-bold tracking-tight">
+                                <span class="text-edge-primary dark:text-white">Edge</span><span class="text-edge-secondary">Fix</span>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hidden xl:flex items-center justify-center flex-1 mx-8">
+                    <div class="flex items-center gap-6">
+                        <div class="dropdown">
+                            <button class="nav-item active flex items-center gap-1">Home <i class="fas fa-chevron-down text-[10px]"></i></button>
+                            <div class="dropdown-menu">
+                                <a href="index.html" class="dropdown-item">Home 1</a>
+                                <a href="home2.html" class="dropdown-item active">Home 2</a>
+                            </div>
+                        </div>
+                        <a href="about.html" class="nav-item">About</a>
+                        <a href="service.html" class="nav-item">Services</a>
+                        <a href="repair.html" class="nav-item">Repair</a>
+                        <a href="pricing.html" class="nav-item">Pricing</a>
+                        <a href="gallery.html" class="nav-item">Gallery</a>
+                        <a href="doorstep.html" class="nav-item">Doorstep</a>
+                        <a href="book.html" class="nav-item">Book</a>
+                        <a href="contact.html" class="nav-item">Contact</a>
+                    </div>
+                </div>
+
+                <div class="hidden xl:flex items-center gap-3">
+                    <button id="theme-toggle" class="toggle-btn" title="Theme"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+                    <button id="rtl-toggle" class="toggle-btn" title="RTL">⇄</button>
+                    <a href="login.html" class="auth-btn login"><i class="fas fa-user-circle"></i> Login</a>
+                    <a href="signup.html" class="auth-btn signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+                </div>
+
+                <div class="xl:hidden flex items-center">
+                    <button id="mobile-toggle" class="text-gray-800 dark:text-white p-2 text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="mobile-menu xl:hidden">
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-btn flex justify-between items-center w-full mobile-menu-item active">Home <i class="fas fa-chevron-down text-xs"></i></button>
+                    <div class="mobile-dropdown-content"><a href="index.html" class="block px-8 py-2 text-sm">Home 1</a><a href="home2.html" class="block px-8 py-2 text-sm active">Home 2</a></div>
+                </div>
+                <a href="about.html" class="mobile-menu-item">About</a>
+                <a href="service.html" class="mobile-menu-item">Services</a>
+                <a href="repair.html" class="mobile-menu-item">Repair</a>
+                <a href="pricing.html" class="mobile-menu-item">Pricing</a>
+                <a href="gallery.html" class="mobile-menu-item">Gallery</a>
+                <a href="doorstep.html" class="mobile-menu-item">Doorstep</a>
+                <a href="book.html" class="mobile-menu-item">Book</a>
+                <a href="contact.html" class="mobile-menu-item">Contact</a>
+                <div class="p-6 border-t border-edge-secondary/20">
+                    <div class="flex justify-center gap-3 mb-4">
+                        <button id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+                        <button id="rtl-toggle-mobile" class="toggle-btn">⇄</button>
+                    </div>
+                    <div class="flex justify-center gap-3">
+                        <a href="login.html" class="auth-btn login text-sm flex items-center justify-center flex-1">Login</a>
+                        <a href="signup.html" class="auth-btn signup text-sm flex items-center justify-center flex-1">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== SECTION 1: HERO - Split Layout with Rich Content ========== -->
+    <section class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden hero-section">
+        <div class="absolute inset-0 opacity-10"><svg class="w-full h-full"><pattern id="blade" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M30,5 L55,30 L30,55 L5,30 Z" fill="none" stroke="#E07A5F" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#blade)"/></svg></div>
+        <div class="absolute top-20 left-10 w-64 h-64 bg-edge-secondary/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-20 right-10 w-80 h-80 bg-edge-secondary/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="relative z-10 max-w-[1400px] mx-auto px-5 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-up opacity-0" style="animation-delay: 0.2s;">
+                    <span class="text-edge-secondary text-[10px] sm:text-xs uppercase tracking-[0.3em] font-bold bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full inline-block mb-4">Mobile Sharpening Service</span>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.1] mt-4 mb-6">Precision <span class="text-edge-secondary">Edge</span><br>Where You Are</h1>
+                    <p class="text-gray-200 text-base md:text-lg mb-6">Professional mobile sharpening for knives, scissors, garden tools, and industrial blades. We come to your doorstep — same-day service available with 100% satisfaction guarantee.</p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="flex items-center gap-2 text-white/80 text-sm"><i class="fas fa-check-circle text-edge-secondary"></i> 10+ years experience</div>
+                        <div class="flex items-center gap-2 text-white/80 text-sm"><i class="fas fa-check-circle text-edge-secondary"></i> Fully licensed & insured</div>
+                        <div class="flex items-center gap-2 text-white/80 text-sm"><i class="fas fa-check-circle text-edge-secondary"></i> Free estimates</div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4"><a href="book.html" class="btn-primary shadow-lg inline-flex items-center justify-center gap-2"><i class="fas fa-calendar-alt"></i> Book Appointment</a><a href="tel:+18885550123" class="btn-outline border-white text-white hover:bg-white hover:text-edge-primary inline-flex items-center justify-center gap-2"><i class="fas fa-phone"></i> Call (888) 555-0123</a></div>
+                </div>
+                <div class="animate-fade-up opacity-0 relative max-w-xl lg:max-w-none mx-auto" style="animation-delay: 0.4s;">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl"><img src="https://static.wixstatic.com/media/be568d_820c21b9537d4bb297a823824602cf86~mv2.jpg/v1/fill/w_1224,h_918,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/be568d_820c21b9537d4bb297a823824602cf86~mv2.jpg" alt="Mobile sharpening van" class="w-full h-auto object-cover"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 2: Stats + Trust Indicators ========== -->
+    <section class="py-12 bg-white dark:bg-edge-dark/50 border-y border-edge-secondary/20">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="grid grid-cols-2 2xl:grid-cols-4 gap-6 text-center">
+                <div class="stat-card p-4 rounded-xl hover:bg-edge-secondary/5 transition"><div class="text-3xl md:text-4xl font-black text-edge-secondary">10,000+</div><p class="text-xs uppercase tracking-wider mt-1 font-semibold">Blades Sharpened</p><p class="text-xs text-gray-500 mt-1">Precision restored</p></div>
+                <div class="stat-card p-4 rounded-xl hover:bg-edge-secondary/5 transition"><div class="text-3xl md:text-4xl font-black text-edge-secondary">98%</div><p class="text-xs uppercase tracking-wider mt-1 font-semibold">Satisfaction Rate</p><p class="text-xs text-gray-500 mt-1">From 2,500+ reviews</p></div>
+                <div class="stat-card p-4 rounded-xl hover:bg-edge-secondary/5 transition"><div class="text-3xl md:text-4xl font-black text-edge-secondary">2,500+</div><p class="text-xs uppercase tracking-wider mt-1 font-semibold">Happy Customers</p><p class="text-xs text-gray-500 mt-1">And growing daily</p></div>
+                <div class="stat-card p-4 rounded-xl hover:bg-edge-secondary/5 transition"><div class="text-3xl md:text-4xl font-black text-edge-secondary">4.9★</div><p class="text-xs uppercase tracking-wider mt-1 font-semibold">Google Rating</p><p class="text-xs text-gray-500 mt-1">Verified reviews</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 3: Featured Services Grid (4 Cards with Detailed Content) ========== -->
+    <section class="py-12 sm:py-16 md:py-24 bg-gray-50 dark:bg-edge-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 md:mb-14">
+                <span class="text-edge-secondary font-mono text-xs sm:text-sm tracking-widest bg-edge-secondary/10 px-3 py-1 rounded-full inline-block">WHAT WE SHARPEN</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-3 sm:mt-4">Our <span class="text-edge-secondary">Services</span></h2>
+                <div class="w-16 sm:w-20 h-1 bg-edge-secondary mx-auto mt-4 sm:mt-5"></div>
+                <p class="text-gray-600 dark:text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mt-3 sm:mt-4">Professional sharpening for all your cutting tools — we bring industrial-grade equipment to your doorstep.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-4 sm:gap-6">
+                <div class="service-card h-full flex flex-col p-5 sm:p-6 text-center">
+                    <div class="w-16 h-16 bg-edge-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-utensils text-2xl text-edge-secondary"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Kitchen Knives</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-3 flex-grow">Chef knives, paring knives, bread knives, santoku, cleavers — restored to factory sharpness using Japanese water stones.</p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                        <span class="text-xs bg-edge-secondary/10 px-2 py-0.5 rounded-full">$5/blade</span>
+                        <span class="text-xs bg-edge-secondary/10 px-2 py-0.5 rounded-full">Same-day</span>
+                    </div>
+                    <a href="service.html" class="inline-block text-edge-secondary text-sm font-semibold hover:underline">Learn More →</a>
+                </div>
+                <div class="service-card h-full flex flex-col p-5 sm:p-6 text-center">
+                    <div class="w-16 h-16 bg-edge-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cut text-2xl text-edge-secondary"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Scissors & Shears</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-3 flex-grow">Hair shears, fabric scissors, office scissors, pinking shears, industrial shears — precision alignment and sharpening.</p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                        <span class="text-xs bg-edge-secondary/10 px-2 py-0.5 rounded-full">$8/pair</span>
+                        <span class="text-xs bg-edge-secondary/10 px-2 py-0.5 rounded-full">Pivot adj.</span>
+                    </div>
+                    <a href="service.html" class="inline-block text-edge-secondary text-sm font-semibold hover:underline">Learn More →</a>
+                </div>
+                <div class="service-card h-full flex flex-col p-5 sm:p-6 text-center">
+                    <div class="w-16 h-16 bg-edge-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-leaf text-2xl text-edge-secondary"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Garden Tools</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-3 flex-grow">Pruners, loppers, hedge shears, lawn mower blades, shovels, hoes — rust removal included with every service.</p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                        <span class="text-xs bg-edge-secondary/10 px-2 py-0.5 rounded-full">$10/tool</span>
+                        <span class="text-xs bg-edge-secondary/10 px-2 py-0.5 rounded-full">Rust removal</span>
+                    </div>
+                    <a href="service.html" class="inline-block text-edge-secondary text-sm font-semibold hover:underline">Learn More →</a>
+                </div>
+                <div class="service-card h-full flex flex-col p-5 sm:p-6 text-center">
+                    <div class="w-16 h-16 bg-edge-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-industry text-2xl text-edge-secondary"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Industrial Blades</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-3 flex-grow">Manufacturing blades, die cutters, slitter blades, granulator knives, and custom industrial tooling.</p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                        <span class="text-xs bg-edge-secondary/10 px-2 py-0.5 rounded-full">Custom quote</span>
+                        <span class="text-xs bg-edge-secondary/10 px-2 py-0.5 rounded-full">Volume disc.</span>
+                    </div>
+                    <a href="service.html" class="inline-block text-edge-secondary text-sm font-semibold hover:underline">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 4: How It Works (Process with Detailed Steps) ========== -->
+    <section class="py-12 sm:py-16 md:py-24 bg-white dark:bg-edge-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 md:mb-14">
+                <span class="text-edge-secondary font-mono text-xs sm:text-sm tracking-widest bg-edge-secondary/10 px-3 py-1 rounded-full inline-block">SIMPLE PROCESS</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-3 sm:mt-4">How It <span class="text-edge-secondary">Works</span></h2>
+                <div class="w-16 sm:w-20 h-1 bg-edge-secondary mx-auto mt-4 sm:mt-5"></div>
+                <p class="text-gray-600 dark:text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mt-3 sm:mt-4">Three easy steps to get your blades professionally sharpened without leaving your home or office.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-4 sm:gap-6">
+                <div class="process-step h-full flex flex-col text-center p-5 sm:p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-edge-secondary transition-all">
+                    <div class="w-16 h-16 bg-edge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-edge-secondary">1</span>
+                    </div>
+                    <h3 class="font-bold text-lg">Request a Quote</h3>
+                    <p class="text-sm text-gray-500 flex-grow">Call, text, or book online — we'll give you a free, no-obligation estimate within 30 minutes.</p>
+                    <div class="mt-3 text-xs text-edge-secondary">📞 (888) 555-0123</div>
+                </div>
+                <div class="process-step h-full flex flex-col text-center p-5 sm:p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-edge-secondary transition-all">
+                    <div class="w-16 h-16 bg-edge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-edge-secondary">2</span>
+                    </div>
+                    <h3 class="font-bold text-lg">We Come to You</h3>
+                    <p class="text-sm text-gray-500 flex-grow">Schedule a time that works for you — our fully-equipped mobile van arrives at your doorstep.</p>
+                    <div class="mt-3 text-xs text-edge-secondary">🚐 Same-day available</div>
+                </div>
+                <div class="process-step h-full flex flex-col text-center p-5 sm:p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-edge-secondary transition-all">
+                    <div class="w-16 h-16 bg-edge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-edge-secondary">3</span>
+                    </div>
+                    <h3 class="font-bold text-lg">Precision Sharpening</h3>
+                    <p class="text-sm text-gray-500 flex-grow">Our expert technicians use professional-grade equipment to restore your blades to razor sharpness.</p>
+                    <div class="mt-3 text-xs text-edge-secondary">⚙️ Japanese water stones</div>
+                </div>
+                <div class="process-step h-full flex flex-col text-center p-5 sm:p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-edge-secondary transition-all">
+                    <div class="w-16 h-16 bg-edge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-edge-secondary">4</span>
+                    </div>
+                    <h3 class="font-bold text-lg">Test & Deliver</h3>
+                    <p class="text-sm text-gray-500 flex-grow">We test each blade, get your approval, and handle payment — satisfaction guaranteed or your money back.</p>
+                    <div class="mt-3 text-xs text-edge-secondary">✅ 100% satisfaction</div>
+                </div>
+            </div>
+            <div class="text-center mt-8 sm:mt-10">
+                <a href="book.html" class="inline-flex items-center gap-2 text-sm sm:text-base text-edge-secondary border-b-2 border-edge-secondary pb-1 font-semibold hover:text-edge-primary transition">Schedule Your Sharpening Today →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 5: Testimonials + Real Results ========== -->
+    <section class="py-12 sm:py-16 md:py-24 bg-gray-50 dark:bg-edge-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 md:mb-14">
+                <span class="text-edge-secondary font-mono text-xs sm:text-sm tracking-widest bg-edge-secondary/10 px-3 py-1 rounded-full inline-block">REAL RESULTS</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-3 sm:mt-4">What Our <span class="text-edge-secondary">Customers Say</span></h2>
+                <div class="w-16 sm:w-20 h-1 bg-edge-secondary mx-auto mt-4 sm:mt-5"></div>
+                <p class="text-gray-600 dark:text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mt-3 sm:mt-4">Join thousands of satisfied customers who trust EdgeFix for their sharpening needs.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 mb-12">
+            <div class="testimonial-card h-full flex flex-col bg-white dark:bg-edge-dark p-5 sm:p-6 rounded-2xl shadow-md border border-gray-200 dark:border-gray-800"><div class="flex items-center gap-2 text-edge-secondary mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-600 dark:text-gray-300 text-sm italic flex-grow">"EdgeFix restored my grandmother's vintage kitchen knives to better-than-new condition. Professional, friendly, and the mobile service was incredibly convenient. I'll never go to a brick-and-mortar shop again."</p><div class="mt-4 flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-edge-secondary/20 flex items-center justify-center"><i class="fas fa-user text-edge-secondary"></i></div><div><p class="font-bold text-sm">James Donovan</p><p class="text-xs text-gray-500">Chef & Home Baker • 5+ services</p></div></div></div>
+            <div class="testimonial-card h-full flex flex-col bg-white dark:bg-edge-dark p-5 sm:p-6 rounded-2xl shadow-md border border-gray-200 dark:border-gray-800"><div class="flex items-center gap-2 text-edge-secondary mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-600 dark:text-gray-300 text-sm italic flex-grow">"I run a salon with 8 stylists. EdgeFix handles all our shears monthly. They come to us, work around our busy schedule, and the quality is outstanding. Our stylists notice the difference immediately."</p><div class="mt-4 flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-edge-secondary/20 flex items-center justify-center"><i class="fas fa-cut text-edge-secondary"></i></div><div><p class="font-bold text-sm">Lisa K.</p><p class="text-xs text-gray-500">Salon Owner • 2+ years</p></div></div></div>
+            <div class="testimonial-card h-full flex flex-col bg-white dark:bg-edge-dark p-5 sm:p-6 rounded-2xl shadow-md border border-gray-200 dark:border-gray-800 md:col-span-2 2xl:col-span-1"><div class="flex items-center gap-2 text-edge-secondary mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-600 dark:text-gray-300 text-sm italic flex-grow">"My garden pruners and loppers were getting dull. EdgeFix came to my house, sharpened everything while I worked from home, and the difference is night and day. Highly recommend their doorstep service!"</p><div class="mt-4 flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-edge-secondary/20 flex items-center justify-center"><i class="fas fa-leaf text-edge-secondary"></i></div><div><p class="font-bold text-sm">Michael Torres</p><p class="text-xs text-gray-500">Homeowner & Gardener</p></div></div></div>
+        </div>
+        <div class="text-center"><a href="gallery.html" class="inline-flex items-center gap-2 text-edge-secondary border-b-2 border-edge-secondary pb-1 font-semibold hover:text-edge-primary transition">View More Success Stories →</a></div></div>
+    </section>
+
+    <!-- ========== SECTION 6: CTA + Membership / Newsletter ========== -->
+    <section class="py-24 bg-white dark:bg-edge-dark/50">
+        <div class="max-w-7xl mx-auto px-5"><div class="grid lg:grid-cols-2 gap-12 items-center"><div><img src="assests/h2.png" alt="Professional sharpening equipment" class="rounded-2xl shadow-2xl max-w-md mx-auto w-full block"></div><div><h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Join the <span class="text-edge-secondary">EdgeFix Club</span></h2><p class="text-gray-600 dark:text-gray-300 mb-6">Get priority service, exclusive discounts, and sharpening tips delivered to your inbox. Members save 15% on every service and get free pickup/delivery.</p><ul class="space-y-3 mb-6"><li class="flex items-center gap-3"><i class="fas fa-check-circle text-edge-secondary text-lg"></i><span><strong>10% off</strong> your first sharpening</span></li><li class="flex items-center gap-3"><i class="fas fa-check-circle text-edge-secondary text-lg"></i><span><strong>Priority scheduling</strong> for members — skip the wait</span></li><li class="flex items-center gap-3"><i class="fas fa-check-circle text-edge-secondary text-lg"></i><span><strong>Monthly sharpening tips</strong> and maintenance guides</span></li><li class="flex items-center gap-3"><i class="fas fa-check-circle text-edge-secondary text-lg"></i><span><strong>Exclusive member-only</strong> promotions and giveaways</span></li></ul><div class="flex flex-col sm:flex-row gap-3"><input type="email" placeholder="Enter your email address" class="flex-1 px-5 py-3 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-edge-dark focus:outline-none focus:border-edge-secondary focus:ring-2 focus:ring-edge-secondary/20"><button onclick="alert('Thanks for joining the EdgeFix Club! Check your inbox for 10% off your first sharpening.')" class="btn-primary px-6 py-3 rounded-full whitespace-nowrap"><i class="fas fa-gift mr-2"></i> Join Now →</button></div><p class="text-xs text-gray-500 mt-3">No spam. Unsubscribe anytime. We respect your privacy.</p></div></div></div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="pt-16 pb-8 bg-edge-light dark:bg-edge-dark border-t border-edge-secondary/20">
+        <div class="max-w-[1400px] mx-auto px-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="text-center md:text-start"><div class="flex items-center gap-3 mb-6 justify-center md:justify-start group"><div class="bg-gradient-to-br from-edge-primary to-edge-dark p-2 rounded-xl shadow-md"><i class="fas fa-cut text-2xl text-edge-secondary group-hover:scale-110 transition-transform"></i></div><div class="flex flex-col text-left"><span class="text-xl md:text-2xl font-display font-bold tracking-tight"><span class="text-edge-primary dark:text-white">Edge</span><span class="text-edge-secondary">Fix</span></span></div></div><p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">Professional mobile sharpening and blade repair — we come to your doorstep. Precision edge repair since 2018 with 5,000+ satisfied customers.</p><div class="flex gap-3 justify-center md:justify-start"><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-icon"><i class="fab fa-yelp"></i></a><a href="#" class="social-icon"><i class="fab fa-google"></i></a></div></div>
+                <div class="text-center md:text-start"><h3 class="text-gray-900 dark:text-white text-xl font-display font-bold mb-5 footer-heading">Quick Links</h3><ul class="space-y-2 text-gray-600 dark:text-gray-300"><li><a href="about.html" class="hover:text-edge-secondary transition block">About Us</a></li><li><a href="service.html" class="hover:text-edge-secondary transition block">Services</a></li><li><a href="pricing.html" class="hover:text-edge-secondary transition block">Pricing</a></li><li><a href="gallery.html" class="hover:text-edge-secondary transition block">Before & After Gallery</a></li><li><a href="contact.html" class="hover:text-edge-secondary transition block">Contact</a></li></ul></div>
+                <div class="text-center md:text-start"><h3 class="text-gray-900 dark:text-white text-xl font-display font-bold mb-5 footer-heading">Support</h3><ul class="space-y-2 text-gray-600 dark:text-gray-300"><li><a href="doorstep.html" class="hover:text-edge-secondary transition block">Doorstep Service</a></li><li><a href="book.html" class="hover:text-edge-secondary transition block">Book Appointment</a></li><li><a href="contact.html#faqs" class="hover:text-edge-secondary transition block">FAQs</a></li><li><a href="#" class="hover:text-edge-secondary transition block">Sharpening Tips</a></li><li><a href="#" class="hover:text-edge-secondary transition block">Gift Cards</a></li></ul></div>
+                <div class="text-center md:text-start"><h3 class="text-gray-900 dark:text-white text-xl font-display font-bold mb-5 footer-heading">Contact</h3><ul class="space-y-3 text-gray-600 dark:text-gray-300"><li class="footer-contact-item justify-center md:justify-start"><i class="fas fa-map-marker-alt"></i><span>123 Sharp Street, Los Angeles, CA 90013</span></li><li class="footer-contact-item justify-center md:justify-start"><i class="fas fa-phone"></i><span><a href="tel:+18885550123" class="hover:text-edge-secondary transition">(888) 555-0123</a></span></li><li class="footer-contact-item justify-center md:justify-start"><i class="fas fa-envelope"></i><span><a href="mailto:hello@edgefix.com" class="hover:text-edge-secondary transition">hello@edgefix.com</a></span></li><li class="footer-contact-item justify-center md:justify-start"><i class="fas fa-clock"></i><span>Mon-Sat: 8am-8pm, Sun: 9am-5pm</span></li></ul></div>
+            </div>
+            <div class="border-t border-edge-secondary/20 dark:border-white/10 mt-12 pt-8 text-center text-gray-500 dark:text-gray-400 text-xs font-mono"><p>© 2026 EdgeFix — Mobile Sharpening & Blade Repair Service. All rights reserved. #EdgeFixPrecision</p><div class="flex justify-center gap-4 mt-2"><a href="#" class="hover:text-edge-secondary transition">Privacy Policy</a><a href="#" class="hover:text-edge-secondary transition">Terms of Service</a><a href="#" class="hover:text-edge-secondary transition">Accessibility</a></div></div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtn = document.getElementById('theme-toggle'), themeMob = document.getElementById('theme-toggle-mobile');
+            const updateThemeUI = (dark) => { [themeBtn, themeMob].forEach(b => { if(b){ let moon=b.querySelector('.fa-moon'), sun=b.querySelector('.fa-sun'); if(dark){ moon?.classList.add('hidden'); sun?.classList.remove('hidden'); } else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); } } }); };
+            const toggleTheme = () => { document.documentElement.classList.toggle('dark'); const isDark = document.documentElement.classList.contains('dark'); localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateThemeUI(isDark); };
+            if(themeBtn) themeBtn.addEventListener('click', toggleTheme); if(themeMob) themeMob.addEventListener('click', toggleTheme);
+            if(localStorage.getItem('theme') === 'dark') { document.documentElement.classList.add('dark'); updateThemeUI(true); }
+            const rtlBtn = document.getElementById('rtl-toggle'), rtlMob = document.getElementById('rtl-toggle-mobile');
+            const updateRtlUI = (isRtl) => { document.documentElement.dir = isRtl ? 'rtl' : 'ltr'; [rtlBtn, rtlMob].forEach(b => b && b.classList.toggle('active', isRtl)); };
+            const toggleRtl = () => { const isRtl = document.documentElement.dir !== 'rtl'; localStorage.setItem('dir', isRtl ? 'rtl' : 'ltr'); updateRtlUI(isRtl); };
+            if(rtlBtn) rtlBtn.addEventListener('click', toggleRtl); if(rtlMob) rtlMob.addEventListener('click', toggleRtl);
+            if(localStorage.getItem('dir') === 'rtl') updateRtlUI(true);
+            const mobileToggle = document.getElementById('mobile-toggle'), mobileMenu = document.getElementById('mobile-menu'), icon = mobileToggle?.querySelector('i');
+            if(mobileToggle) mobileToggle.addEventListener('click', () => { mobileMenu.classList.toggle('open'); icon?.classList.toggle('fa-bars'); icon?.classList.toggle('fa-times'); document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : ''; });
+            document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => { btn.addEventListener('click', () => { const content = btn.nextElementSibling; content.classList.toggle('show'); const chev = btn.querySelector('.fa-chevron-down'); if(chev) chev.style.transform = content.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0)'; }); });
+        });
+    </script>
+</body>
+</html>
