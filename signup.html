@@ -83,9 +83,19 @@
             color: #E8EDEE;
         }
 
-        /* toggle buttons */
+        /* toggle buttons — positioned fixed top-right */
         .theme-toggle-wrapper {
+            position: fixed;
+            top: 20px;
+            right: 20px;
             z-index: 1000;
+            display: flex;
+            gap: 6px;
+        }
+
+        [dir="rtl"] .theme-toggle-wrapper {
+            right: auto;
+            left: 20px;
         }
 
         .toggle-btn {
@@ -310,7 +320,6 @@
             display: none;
         }
 
-        /* container */
         .container-tight {
             max-width: 480px;
             width: 100%;
@@ -484,6 +493,20 @@
                 font-size: 0.75rem;
             }
 
+            body {
+                padding-top: 50px;
+            }
+
+            .theme-toggle-wrapper {
+                top: 12px;
+                right: 12px;
+            }
+
+            [dir="rtl"] .theme-toggle-wrapper {
+                right: auto;
+                left: 12px;
+            }
+
             .toggle-btn {
                 width: 32px;
                 height: 32px;
@@ -498,6 +521,20 @@
 
         /* mobile friendly */
         @media (max-width: 380px) {
+            body {
+                padding-top: 50px;
+            }
+
+            .theme-toggle-wrapper {
+                top: 12px;
+                right: 12px;
+            }
+
+            [dir="rtl"] .theme-toggle-wrapper {
+                right: auto;
+                left: 12px;
+            }
+
             .signup-card {
                 padding: 1rem 1.2rem;
                 border-radius: 24px;
@@ -586,21 +623,26 @@
 
 <body class="blade-pattern">
 
+    <!-- ===== THEME TOGGLES - TOP-RIGHT ===== -->
+    <div class="theme-toggle-wrapper">
+        <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+        <button id="rtl-toggle" class="toggle-btn">⇄</button>
+    </div>
+
     <!-- ===== SIGNUP CARD ===== -->
     <div class="container-tight">
-        <!-- ===== THEME TOGGLES ===== -->
-        <div class="theme-toggle-wrapper flex items-center justify-end gap-3 mb-4">
-            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
-            <button id="rtl-toggle" class="toggle-btn">⇄</button>
-        </div>
         <div class="signup-card">
 
             <!-- ===== LOGO - CENTERED ===== -->
             <div class="logo-center mb-6">
-                <a href="index.html" class="flex items-center space-x-3 group">
-                    <div class="bg-white dark:bg-[#1A1A1A] px-5 py-2 rounded-full flex items-center shadow-md border border-gray-200 dark:border-[#2A2A2A] transform group-hover:scale-105 transition-transform">
-                        <i class="fas fa-cut text-2xl text-edge-secondary mr-2"></i>
-                        <span class="text-2xl font-display font-bold text-edge-primary dark:text-white">Edge</span><span class="text-2xl font-display font-bold text-edge-secondary">Fix</span>
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="bg-gradient-to-br from-edge-primary to-edge-dark p-2 rounded-xl shadow-md">
+                        <i class="fas fa-cut text-2xl text-edge-secondary group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl md:text-2xl font-display font-bold tracking-tight">
+                            <span class="text-edge-primary dark:text-white">Edge</span><span class="text-edge-secondary">Fix</span>
+                        </span>
                     </div>
                 </a>
 
