@@ -243,10 +243,42 @@
     <section class="py-24 bg-white dark:bg-edge-dark/50">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-6">
-                <div class="contact-method bg-edge-light dark:bg-edge-dark p-6 rounded-2xl text-center border border-gray-200 dark:border-gray-700"><div class="w-16 h-16 bg-edge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-phone text-2xl text-edge-secondary"></i></div><h3 class="font-bold text-lg">Call Us</h3><p class="text-2xl font-bold text-edge-secondary mt-2">(888) 555-0123</p><p class="text-sm text-gray-500 mt-2">Mon-Sat: 8am-8pm<br>Sun: 9am-5pm</p><a href="tel:+18885550123" class="inline-block mt-3 text-edge-secondary text-sm font-semibold hover:underline">Call Now →</a></div>
-                <div class="contact-method bg-edge-light dark:bg-edge-dark p-6 rounded-2xl text-center border border-gray-200 dark:border-gray-700"><div class="w-16 h-16 bg-edge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-envelope text-2xl text-edge-secondary"></i></div><h3 class="font-bold text-lg">Email Us</h3><p class="text-sm font-mono mt-2">General: hello@edgefix.com</p><p class="text-sm font-mono">Support: support@edgefix.com</p><p class="text-sm font-mono">Sales: sales@edgefix.com</p><a href="mailto:hello@edgefix.com" class="inline-block mt-3 text-edge-secondary text-sm font-semibold hover:underline">Send Email →</a></div>
-                <div class="contact-method bg-edge-light dark:bg-edge-dark p-6 rounded-2xl text-center border border-gray-200 dark:border-gray-700"><div class="w-16 h-16 bg-edge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fab fa-whatsapp text-2xl text-edge-secondary"></i></div><h3 class="font-bold text-lg">WhatsApp</h3><p class="text-2xl font-bold text-edge-secondary mt-2">(888) 555-0123</p><p class="text-sm text-gray-500 mt-2">Text for quick quotes & booking</p><a href="#" class="inline-block mt-3 text-edge-secondary text-sm font-semibold hover:underline">Chat on WhatsApp →</a></div>
-                <div class="contact-method bg-edge-light dark:bg-edge-dark p-6 rounded-2xl text-center border border-gray-200 dark:border-gray-700"><div class="w-16 h-16 bg-edge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-comment-dots text-2xl text-edge-secondary"></i></div><h3 class="font-bold text-lg">Live Chat</h3><p class="text-sm text-gray-500 mt-2">Available during business hours</p><button onclick="alert('Chat window would open here. Our team is online Mon-Fri 8am-8pm.')" class="mt-3 text-edge-secondary text-sm font-semibold hover:underline">Start Chat →</button></div>
+                <div class="contact-method bg-edge-light dark:bg-edge-dark p-6 rounded-2xl text-center border border-gray-200 dark:border-gray-700 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="w-16 h-16 bg-edge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-phone text-2xl text-edge-secondary"></i></div>
+                        <h3 class="font-bold text-lg">Call Us</h3>
+                        <p class="text-2xl font-bold text-edge-secondary mt-2">(888) 555-0123</p>
+                        <p class="text-sm text-gray-500 mt-2">Mon-Sat: 8am-8pm<br>Sun: 9am-5pm</p>
+                    </div>
+                    <a href="tel:+18885550123" class="inline-block mt-4 text-edge-secondary text-sm font-semibold hover:underline">Call Now →</a>
+                </div>
+                <div class="contact-method bg-edge-light dark:bg-edge-dark p-6 rounded-2xl text-center border border-gray-200 dark:border-gray-700 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="w-16 h-16 bg-edge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-envelope text-2xl text-edge-secondary"></i></div>
+                        <h3 class="font-bold text-lg">Email Us</h3>
+                        <p class="text-sm font-mono mt-2">General: hello@edgefix.com</p>
+                        <p class="text-sm font-mono">Support: support@edgefix.com</p>
+                        <p class="text-sm font-mono">Sales: sales@edgefix.com</p>
+                    </div>
+                    <a href="mailto:hello@edgefix.com" class="inline-block mt-4 text-edge-secondary text-sm font-semibold hover:underline">Send Email →</a>
+                </div>
+                <div class="contact-method bg-edge-light dark:bg-edge-dark p-6 rounded-2xl text-center border border-gray-200 dark:border-gray-700 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="w-16 h-16 bg-edge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fab fa-whatsapp text-2xl text-edge-secondary"></i></div>
+                        <h3 class="font-bold text-lg">WhatsApp</h3>
+                        <p class="text-2xl font-bold text-edge-secondary mt-2">(888) 555-0123</p>
+                        <p class="text-sm text-gray-500 mt-2">Text for quick quotes & booking</p>
+                    </div>
+                    <a href="#" class="inline-block mt-4 text-edge-secondary text-sm font-semibold hover:underline">Chat on WhatsApp →</a>
+                </div>
+                <div class="contact-method bg-edge-light dark:bg-edge-dark p-6 rounded-2xl text-center border border-gray-200 dark:border-gray-700 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="w-16 h-16 bg-edge-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-comment-dots text-2xl text-edge-secondary"></i></div>
+                        <h3 class="font-bold text-lg">Live Chat</h3>
+                        <p class="text-sm text-gray-500 mt-2">Available during business hours</p>
+                    </div>
+                    <button onclick="alert('Chat window would open here. Our team is online Mon-Fri 8am-8pm.')" class="mt-4 text-edge-secondary text-sm font-semibold hover:underline">Start Chat →</button>
+                </div>
             </div>
         </div>
     </section>
