@@ -122,6 +122,8 @@
         .volume-tier { transition: all 0.3s ease; }
         .volume-tier:hover { background: #E07A5F10; border-color: #E07A5F; transform: translateX(5px); }
         [dir="rtl"] .volume-tier:hover { transform: translateX(-5px); }
+        
+        .faq-accordion-content { transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease-in-out; }
     </style>
 </head>
 <body class="bg-edge-light dark:bg-edge-dark text-gray-900 dark:text-gray-100">
@@ -270,7 +272,24 @@
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="flex justify-center"><img src="assests/hero_sharpening.png" alt="Professional blade sharpening service" class="rounded-2xl shadow-2xl w-full max-w-md"></div>
                 <div><h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Volume <span class="text-edge-secondary">Discounts</span></h2><p class="text-gray-600 dark:text-gray-300 mb-6">For restaurants, salons, workshops, and industrial facilities — the more you sharpen, the more you save.</p>
-                    <div class="space-y-3"><div class="volume-tier flex justify-between items-center p-3 rounded-xl border border-gray-200 dark:border-gray-700"><span class="font-semibold">20-49 blades</span><span class="text-edge-secondary font-bold">10% off</span></div><div class="volume-tier flex justify-between items-center p-3 rounded-xl border border-gray-200 dark:border-gray-700"><span class="font-semibold">50-99 blades</span><span class="text-edge-secondary font-bold">15% off + free pickup</span></div><div class="volume-tier flex justify-between items-center p-3 rounded-xl border border-gray-200 dark:border-gray-700"><span class="font-semibold">100+ blades</span><span class="text-edge-secondary font-bold">20% off + priority service</span></div><div class="volume-tier flex justify-between items-center p-3 rounded-xl border border-gray-200 dark:border-gray-700"><span class="font-semibold">250+ blades/year</span><span class="text-edge-secondary font-bold">Custom enterprise plan</span></div></div>
+                    <div class="space-y-3">
+                        <div class="volume-tier flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+                            <span class="font-semibold">20-49 blades</span>
+                            <span class="text-edge-secondary font-bold">10% off</span>
+                        </div>
+                        <div class="volume-tier flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+                            <span class="font-semibold">50-99 blades</span>
+                            <span class="text-edge-secondary font-bold">15% off + free pickup</span>
+                        </div>
+                        <div class="volume-tier flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+                            <span class="font-semibold">100+ blades</span>
+                            <span class="text-edge-secondary font-bold">20% off + priority service</span>
+                        </div>
+                        <div class="volume-tier flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+                            <span class="font-semibold">250+ blades/year</span>
+                            <span class="text-edge-secondary font-bold">Custom enterprise plan</span>
+                        </div>
+                    </div>
                     <a href="contact.html" class="btn-primary mt-8"><i class="fas fa-chart-line"></i> Request Volume Quote</a>
                 </div>
             </div>
@@ -293,19 +312,93 @@
     </section>
 
     <!-- ========== SECTION 6: FAQ + CTA ========== -->
-    <section class="py-24 bg-white dark:bg-edge-dark/50">
+    <section id="faqs" class="py-24 bg-white dark:bg-edge-dark/50">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-10">
-                <span class="text-edge-secondary font-mono text-sm tracking-widest">QUESTIONS?</span>
-                <h2 class="text-3xl md:text-4xl font-display font-bold mt-2">Pricing <span class="text-edge-secondary">FAQs</span></h2>
+            <div class="grid lg:grid-cols-12 gap-12 max-w-6xl mx-auto mb-16">
+                <!-- Left Side: Sticky Title and CTA link -->
+                <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-28 self-start">
+                    <div class="inline-flex items-center gap-2 bg-edge-secondary/10 px-4 py-1.5 rounded-full border border-edge-secondary/20">
+                        <span class="text-edge-secondary font-mono text-xs uppercase tracking-widest font-semibold">Common Inquiries</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold leading-tight">
+                        Pricing <span class="text-edge-secondary">FAQs</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-base max-w-md">
+                        Everything you need to know about our rates, billing, and mobile service. If you have another question, feel free to reach out to our team.
+                    </p>
+                    <div class="pt-2">
+                        <a href="contact.html" class="inline-flex items-center gap-2 text-edge-secondary hover:text-edge-primary dark:hover:text-white font-semibold group transition">
+                            <span>Still have questions? Contact us</span>
+                            <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side: Accordion -->
+                <div class="lg:col-span-7 space-y-4">
+                    <!-- Accordion Item 1 -->
+                    <div class="faq-accordion-item group border border-gray-200/80 dark:border-gray-800/80 rounded-2xl bg-white dark:bg-edge-dark shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                        <button class="faq-accordion-trigger w-full text-left p-6 flex justify-between items-center gap-4 focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-lg text-edge-primary dark:text-white group-hover:text-edge-secondary transition-colors duration-200">Is there a minimum service fee?</span>
+                            <span class="faq-accordion-icon flex items-center justify-center w-8 h-8 rounded-full bg-edge-light dark:bg-edge-dark/50 group-hover:bg-edge-secondary/15 transition-colors duration-300">
+                                <i class="fas fa-plus text-xs text-edge-secondary transition-transform duration-300"></i>
+                            </span>
+                        </button>
+                        <div class="faq-accordion-content max-h-0 opacity-0 overflow-hidden">
+                            <div class="px-6 pb-6 text-gray-600 dark:text-gray-400 text-sm md:text-base border-t border-gray-100 dark:border-gray-800/50 pt-4 leading-relaxed">
+                                Yes — there is a $20 minimum per visit. This covers travel and setup time, ensuring we can bring our professional equipment directly to your location.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 2 -->
+                    <div class="faq-accordion-item group border border-gray-200/80 dark:border-gray-800/80 rounded-2xl bg-white dark:bg-edge-dark shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                        <button class="faq-accordion-trigger w-full text-left p-6 flex justify-between items-center gap-4 focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-lg text-edge-primary dark:text-white group-hover:text-edge-secondary transition-colors duration-200">Do you charge extra for pickup/delivery?</span>
+                            <span class="faq-accordion-icon flex items-center justify-center w-8 h-8 rounded-full bg-edge-light dark:bg-edge-dark/50 group-hover:bg-edge-secondary/15 transition-colors duration-300">
+                                <i class="fas fa-plus text-xs text-edge-secondary transition-transform duration-300"></i>
+                            </span>
+                        </button>
+                        <div class="faq-accordion-content max-h-0 opacity-0 overflow-hidden">
+                            <div class="px-6 pb-6 text-gray-600 dark:text-gray-400 text-sm md:text-base border-t border-gray-100 dark:border-gray-800/50 pt-4 leading-relaxed">
+                                No — mobile service is always included within our service area. We perform the sharpening right inside our specialized mobile workshop van outside your location.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 3 -->
+                    <div class="faq-accordion-item group border border-gray-200/80 dark:border-gray-800/80 rounded-2xl bg-white dark:bg-edge-dark shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                        <button class="faq-accordion-trigger w-full text-left p-6 flex justify-between items-center gap-4 focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-lg text-edge-primary dark:text-white group-hover:text-edge-secondary transition-colors duration-200">How do you calculate the price?</span>
+                            <span class="faq-accordion-icon flex items-center justify-center w-8 h-8 rounded-full bg-edge-light dark:bg-edge-dark/50 group-hover:bg-edge-secondary/15 transition-colors duration-300">
+                                <i class="fas fa-plus text-xs text-edge-secondary transition-transform duration-300"></i>
+                            </span>
+                        </button>
+                        <div class="faq-accordion-content max-h-0 opacity-0 overflow-hidden">
+                            <div class="px-6 pb-6 text-gray-600 dark:text-gray-400 text-sm md:text-base border-t border-gray-100 dark:border-gray-800/50 pt-4 leading-relaxed">
+                                By blade/tool type, not by time. You'll get a firm, transparent price before we start so there are absolutely no surprises when it's time to pay.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 4 -->
+                    <div class="faq-accordion-item group border border-gray-200/80 dark:border-gray-800/80 rounded-2xl bg-white dark:bg-edge-dark shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                        <button class="faq-accordion-trigger w-full text-left p-6 flex justify-between items-center gap-4 focus:outline-none" aria-expanded="false">
+                            <span class="font-bold text-lg text-edge-primary dark:text-white group-hover:text-edge-secondary transition-colors duration-200">Do you offer senior or military discounts?</span>
+                            <span class="faq-accordion-icon flex items-center justify-center w-8 h-8 rounded-full bg-edge-light dark:bg-edge-dark/50 group-hover:bg-edge-secondary/15 transition-colors duration-300">
+                                <i class="fas fa-plus text-xs text-edge-secondary transition-transform duration-300"></i>
+                            </span>
+                        </button>
+                        <div class="faq-accordion-content max-h-0 opacity-0 overflow-hidden">
+                            <div class="px-6 pb-6 text-gray-600 dark:text-gray-400 text-sm md:text-base border-t border-gray-100 dark:border-gray-800/50 pt-4 leading-relaxed">
+                                Yes — we offer a 10% discount for seniors, veterans, and active military personnel as a thank you for your service and support in the community.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-12">
-                <div class="bg-edge-light dark:bg-edge-dark p-4 rounded-xl"><p class="font-bold mb-1">Is there a minimum service fee?</p><p class="text-sm text-gray-500">Yes — $20 minimum per visit. This covers travel and setup time.</p></div>
-                <div class="bg-edge-light dark:bg-edge-dark p-4 rounded-xl"><p class="font-bold mb-1">Do you charge extra for pickup/delivery?</p><p class="text-sm text-gray-500">No — mobile service is always included within our service area.</p></div>
-                <div class="bg-edge-light dark:bg-edge-dark p-4 rounded-xl"><p class="font-bold mb-1">How do you calculate the price?</p><p class="text-sm text-gray-500">By blade/tool type, not by time. You'll get a firm price before we start.</p></div>
-                <div class="bg-edge-light dark:bg-edge-dark p-4 rounded-xl"><p class="font-bold mb-1">Do you offer senior or military discounts?</p><p class="text-sm text-gray-500">Yes — 10% off for seniors, veterans, and active military.</p></div>
-            </div>
-            <div class="bg-gradient-to-r from-edge-primary to-edge-dark rounded-3xl p-8 text-white text-center"><i class="fas fa-calculator text-3xl mb-3"></i><h3 class="text-2xl font-bold mb-2">Need a Custom Quote?</h3><p class="text-white/80 mb-5">Contact us for bulk pricing, industrial accounts, or special requests</p><div class="flex flex-col sm:flex-row gap-4 justify-center"><a href="#" class="bg-edge-secondary hover:bg-white hover:text-edge-primary text-white px-8 py-3 rounded-full text-sm font-bold transition">Call (888) 555-0123</a><a href="#" class="border-2 border-white hover:bg-white hover:text-edge-primary text-white px-8 py-3 rounded-full text-sm font-bold transition">Get Free Quote →</a></div></div>
+            
+            <div class="bg-gradient-to-r from-edge-primary to-edge-dark rounded-3xl p-8 text-white text-center mt-12"><i class="fas fa-calculator text-3xl mb-3"></i><h3 class="text-2xl font-bold mb-2">Need a Custom Quote?</h3><p class="text-white/80 mb-5">Contact us for bulk pricing, industrial accounts, or special requests</p><div class="flex flex-col sm:flex-row gap-4 justify-center"><a href="#" class="bg-edge-secondary hover:bg-white hover:text-edge-primary text-white px-8 py-3 rounded-full text-sm font-bold transition">Call (888) 555-0123</a><a href="#" class="border-2 border-white hover:bg-white hover:text-edge-primary text-white px-8 py-3 rounded-full text-sm font-bold transition">Get Free Quote →</a></div></div>
         </div>
     </section>
 
@@ -337,6 +430,51 @@
             const mobileToggle = document.getElementById('mobile-toggle'), mobileMenu = document.getElementById('mobile-menu'), icon = mobileToggle?.querySelector('i');
             if(mobileToggle) mobileToggle.addEventListener('click', () => { mobileMenu.classList.toggle('open'); icon?.classList.toggle('fa-bars'); icon?.classList.toggle('fa-times'); document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : ''; });
             document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => { btn.addEventListener('click', () => { const content = btn.nextElementSibling; content.classList.toggle('show'); const chev = btn.querySelector('.fa-chevron-down'); if(chev) chev.style.transform = content.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0)'; }); });
+
+            // Accordion logic for FAQs
+            const triggers = document.querySelectorAll('.faq-accordion-trigger');
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const content = trigger.nextElementSibling;
+                    const icon = trigger.querySelector('.faq-accordion-icon i');
+                    const parent = trigger.parentElement;
+                    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+                    // Close all other accordions
+                    triggers.forEach(t => {
+                        if (t !== trigger) {
+                            t.setAttribute('aria-expanded', 'false');
+                            const c = t.nextElementSibling;
+                            c.style.maxHeight = null;
+                            c.classList.add('opacity-0');
+                            const i = t.querySelector('.faq-accordion-icon i');
+                            if (i) {
+                                i.className = 'fas fa-plus text-xs text-edge-secondary transition-transform duration-300';
+                            }
+                            t.parentElement.classList.remove('border-edge-secondary', 'ring-1', 'ring-edge-secondary/30');
+                        }
+                    });
+
+                    // Toggle current accordion
+                    if (isExpanded) {
+                        trigger.setAttribute('aria-expanded', 'false');
+                        content.style.maxHeight = null;
+                        content.classList.add('opacity-0');
+                        if (icon) {
+                            icon.className = 'fas fa-plus text-xs text-edge-secondary transition-transform duration-350';
+                        }
+                        parent.classList.remove('border-edge-secondary', 'ring-1', 'ring-edge-secondary/30');
+                    } else {
+                        trigger.setAttribute('aria-expanded', 'true');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.classList.remove('opacity-0');
+                        if (icon) {
+                            icon.className = 'fas fa-minus text-xs text-edge-secondary transition-transform duration-350 rotate-180';
+                        }
+                        parent.classList.add('border-edge-secondary', 'ring-1', 'ring-edge-secondary/30');
+                    }
+                });
+            });
         });
     </script>
 </body>

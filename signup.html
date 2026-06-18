@@ -83,14 +83,9 @@
             color: #E8EDEE;
         }
 
-        /* toggle buttons — positioned top-right */
+        /* toggle buttons */
         .theme-toggle-wrapper {
-            position: fixed;
-            top: 12px;
-            right: 12px;
             z-index: 1000;
-            display: flex;
-            gap: 6px;
         }
 
         .toggle-btn {
@@ -305,11 +300,6 @@
             transform: scaleX(-1);
         }
 
-        [dir="rtl"] .theme-toggle-wrapper {
-            right: auto;
-            left: 20px;
-        }
-
         [dir="rtl"] .flex.space-x-2> :not([hidden])~ :not([hidden]) {
             margin-right: 0.5rem;
             margin-left: 0;
@@ -494,11 +484,6 @@
                 font-size: 0.75rem;
             }
 
-            .theme-toggle-wrapper {
-                top: 8px;
-                right: 8px;
-            }
-
             .toggle-btn {
                 width: 32px;
                 height: 32px;
@@ -576,17 +561,6 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .theme-toggle-wrapper {
-                top: 12px;
-                right: 12px;
-            }
-
-            [dir="rtl"] .theme-toggle-wrapper {
-                left: 12px;
-            }
-        }
-
         /* floating decoration (subtle) */
         .floating-blade {
             position: fixed;
@@ -612,14 +586,13 @@
 
 <body class="blade-pattern">
 
-    <!-- ===== THEME TOGGLES - TOP-RIGHT ===== -->
-    <div class="theme-toggle-wrapper flex items-center gap-3">
-        <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
-        <button id="rtl-toggle" class="toggle-btn">⇄</button>
-    </div>
-
     <!-- ===== SIGNUP CARD ===== -->
     <div class="container-tight">
+        <!-- ===== THEME TOGGLES ===== -->
+        <div class="theme-toggle-wrapper flex items-center justify-end gap-3 mb-4">
+            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+            <button id="rtl-toggle" class="toggle-btn">⇄</button>
+        </div>
         <div class="signup-card">
 
             <!-- ===== LOGO - CENTERED ===== -->

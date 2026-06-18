@@ -83,14 +83,9 @@
             color: #E8EDEE;
         }
 
-        /* toggle buttons — positioned top-right */
+        /* toggle buttons */
         .theme-toggle-wrapper {
-            position: fixed;
-            top: 12px;
-            right: 12px;
             z-index: 1000;
-            display: flex;
-            gap: 6px;
         }
 
         .toggle-btn {
@@ -363,11 +358,6 @@
             transform: scaleX(-1);
         }
 
-        [dir="rtl"] .theme-toggle-wrapper {
-            right: auto;
-            left: 12px;
-        }
-
         /* Fix for short screens */
         @media (max-height: 650px) {
             .login-card {
@@ -393,17 +383,6 @@
             .login-input {
                 padding: 0.6rem 0.8rem 0.6rem 2.5rem;
                 font-size: 0.85rem;
-            }
-
-            .edge-btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
-                margin-top: 0.25rem;
-            }
-
-            .theme-toggle-wrapper {
-                top: 8px;
-                right: 8px;
             }
 
             .toggle-btn {
@@ -438,17 +417,6 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .theme-toggle-wrapper {
-                top: 12px;
-                right: 12px;
-            }
-
-            [dir="rtl"] .theme-toggle-wrapper {
-                left: 12px;
-            }
-        }
-
         .hidden {
             display: none;
         }
@@ -471,14 +439,13 @@
 
 <body class="blade-pattern">
 
-    <!-- ===== THEME TOGGLES - TOP-RIGHT ===== -->
-    <div class="theme-toggle-wrapper flex items-center gap-3">
-        <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
-        <button id="rtl-toggle" class="toggle-btn">⇄</button>
-    </div>
-
     <!-- ===== LOGIN CARD ===== -->
     <div class="container-tight">
+        <!-- ===== THEME TOGGLES ===== -->
+        <div class="theme-toggle-wrapper flex items-center justify-end gap-3 mb-4">
+            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+            <button id="rtl-toggle" class="toggle-btn">⇄</button>
+        </div>
         <div class="login-card animate-fade-in">
 
             <!-- ===== LOGO - CENTERED ===== -->
